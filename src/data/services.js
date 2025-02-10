@@ -1,24 +1,26 @@
 import { FaCogs, FaClipboardCheck, FaBoxOpen, FaHeadset } from 'react-icons/fa';
 
+export const description = "Description"
+
 export const services = [
     {
     icon: <FaCogs />,
-    title: "Custom Cable Manufacturing",
-    description: "Tailored cable solutions designed and produced to meet your unique specifications and requirements."
+    title: "Service 1",
+    description: "Description 1"
     },
     {
     icon: <FaClipboardCheck />,
-    title: "Testing and Quality Control",
-    description: "Rigorous testing and quality assurance to ensure our cables exceed industry standards and customer expectations."
+    title: "Service 2",
+    description: "Description 2"
     },
     {
     icon: <FaBoxOpen />,
-    title: "Custom Packaging and Labeling",
-    description: "Branded packaging solutions to enhance your product presentation and reinforce your brand identity."
+    title: "Service 3",
+    description: "Description 3"
     },
     {
     icon: <FaHeadset />,
-    title: "Cable Consultation and Support",
-    description: "Expert guidance on cable selection, installation, and maintenance to optimize your cable infrastructure."
+    title: "Service 4",
+    description: "Description 4"
     }
 ];

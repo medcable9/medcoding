@@ -13,33 +13,33 @@ export const agents = [
 export const agents_cities = ["Bekaa", "Beirut", "North Lebanon", "South Lebanon"];
 
 export const clients = [
-  { id: 1, logo: undp, description: 'Leading technology solutions provider'},
-  { id: 2, logo: neu, description: 'Leading technology solutions provider'},
-  { id: 3, logo: jubaili, description: 'Leading technology solutions provider'},
-  { id: 4, logo: army, description: 'Leading technology solutions provider'},
-  { id: 5, logo: UNICEF, description: 'Leading technology solutions provider'},
-  { id: 6, logo: USAID, description: 'Leading technology solutions provider'},
+  { id: 1, logo: undp, description: ''},
+  { id: 2, logo: neu, description: ''},
+  { id: 3, logo: jubaili, description: ''},
+  { id: 4, logo: army, description: ''},
+  { id: 5, logo: UNICEF, description: ''},
+  { id: 6, logo: USAID, description: ''},
 ];
   
 export const customers = {
     local: {
       "Government": [
-        { name: "Ministry of Energy", logo: army },
-        { name: "Department of Infrastructure", logo: army }
+        { name: "", logo: army },
+        { name: "", logo: army }
       ],
       "Private Sector": [
-        { name: "National Electric Company", logo: jubaili },
-        { name: "TechCorp Industries", logo: jubaili }
+        { name: "", logo: jubaili },
+        { name: "", logo: jubaili }
       ]
     },
     international: {
       "NGOs": [
-        { name: "UNICEF", logo: UNICEF },
-        { name: "UNDP", logo: undp }
+        { name: "", logo: UNICEF },
+        { name: "", logo: undp }
       ],
       "Aid Organizations": [
-        { name: "USAID", logo: USAID },
-        { name: "International Relief", logo: USAID }
+        { name: "", logo: USAID },
+        { name: "", logo: USAID }
       ]
     }
   };

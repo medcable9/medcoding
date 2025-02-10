@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './CommonServices.css';
-import { services } from '../../data/services';
+import { services, description } from '../../data/services';
 
 const ServiceCard = ({ icon, title, description }) => (
   <motion.div 
@@ -32,7 +32,7 @@ const CommonServices = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          At Mediterranean Cables, we offer a comprehensive range of services to meet all your cable needs. From custom manufacturing to expert consultation, we're here to ensure you get the perfect cable solution for your project.
+          { description }
         </motion.p>
         <div className="services-grid">
           {services.map((service, index) => (
