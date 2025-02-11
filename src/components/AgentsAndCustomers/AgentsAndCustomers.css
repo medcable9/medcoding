@@ -162,27 +162,51 @@
     font-size: 0.9rem;
     color: #34495e;
   }
-  
-  /* Export Countries Section */
-  .export-countries-section {
-    margin-bottom: 4rem;
+
+.google-maps-section {
+  text-align: center;
+  padding: 40px;
+  background-color: #F8F9FA;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 500px; /* Adjust as needed */
+  min-height: 400px;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #ffffff;
+  color: #502c2f;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.leaflet-popup-tip {
+  background-color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .google-maps-section {
+    padding: 30px;
   }
-  
+
   .leaflet-container {
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 400px;
   }
-  
-  .leaflet-popup-content-wrapper {
-    background-color: #ffffff;
-    color: #2c3e50;
-    border-radius: 5px;
-    padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .google-maps-section {
+    padding: 20px;
   }
-  
-  .leaflet-popup-tip {
-    background-color: #ffffff;
+
+  .leaflet-container {
+    height: 300px;
   }
+}
+
   
   /* Responsive Design */
   @media (max-width: 768px) {

@@ -12,32 +12,32 @@ import i42 from "../assets/images/bg.jpg";
 
 export const projects = [
   { 
-    title: "Fiber Optic Expansion", 
-    country: "USA", 
+    title: "Project 1", 
+    country: "📍 USA", 
     images: [
       i11,
       i12
     ]
   },
   { 
-    title: "Industrial Wiring Solutions", 
-    country: "Germany", 
+    title: "Project 2", 
+    country: "📍 Germany", 
     images: [
       i21,
       i22
     ]
   },
   { 
-    title: "Marine Cabling", 
-    country: "Norway", 
+    title: "Project 3", 
+    country: "📍 Norway", 
     images: [
       i31,
       i32
     ]
   },
   { 
-    title: "Renewable Energy Grids", 
-    country: "Australia", 
+    title: "Project 4", 
+    country: "📍 Australia", 
     images: [
       i41,
       i42

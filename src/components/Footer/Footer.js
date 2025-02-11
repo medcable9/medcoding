@@ -1,10 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  FaFacebook, 
-  FaTwitter, 
-  FaInstagram, 
-  FaLinkedin, 
   FaEnvelope, 
   FaMapMarkerAlt, 
   FaPhoneAlt,
@@ -13,16 +9,13 @@ import {
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import logo from '../../assets/images/logo.png';
+import { contact_info } from '../../data/contact.js';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const socialLinks = [
-    { icon: FaFacebook, url: '#' },
-    { icon: FaTwitter, url: '#' },
-    { icon: FaInstagram, url: '#' },
-    { icon: FaLinkedin, url: '#' }
-  ];
+  // Extract contact details and working hours from contact_info
+  const { email, phone, address, workingHours, socialLinks } = contact_info[0];
 
   return (
     <motion.footer 
@@ -65,18 +58,13 @@ const Footer = () => {
         >
           <h4><FaClock /> Working Hours</h4>
           <ul className="hours-list">
-            <li>
-              <span>Monday - Friday</span>
-              <span>8:00 AM - 3:00 PM</span>
-            </li>
-            <li>
-              <span>Saturday</span>
-              <span>8:00 AM - 2:00 PM</span>
-            </li>
-            <li>
-              <span>Sunday</span>
-              <span>Closed</span>
-            </li>
+            {/* Dynamically render working hours */}
+            {workingHours.map((item, index) => (
+              <li key={index}>
+                <span>{item.days}</span>
+                <span>{item.hours}</span>
+              </li>
+            ))}
           </ul>
         </motion.div>
 
@@ -90,15 +78,15 @@ const Footer = () => {
           <div className="footer-contact-details">
             <div className="footer-contact-detail">
               <FaMapMarkerAlt />
-              <span>123 Business Street, City, Country</span>
+              <span>{address}</span>
             </div>
             <div className="footer-contact-detail">
               <FaPhoneAlt />
-              <span>+1 (555) 123-4567</span>
+              <span>{phone}</span>
             </div>
             <div className="footer-contact-detail">
               <FaEnvelope />
-              <span>info@yourcompany.com</span>
+              <span>{email}</span>
             </div>
           </div>
         </motion.div>

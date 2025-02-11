@@ -11,37 +11,37 @@ export const activities = [
     {
       image: [activity1, activity1_1],
       date: "May 02, 2020",
-      title: "",
-      description: ""
+      title: "Activity 1",
+      description: "Description 1"
     },
     {
       image: [activity2],
       date: "September 27, 2019",
-      title: "",
-      description: ""
+      title: "Activity 2",
+      description: "Description 2"
     },
     {
       image: [activity3],
       date: "August 04, 2019",
-      title: "",
-      description: ""
+      title: "Activity 3",
+      description: "Description 3"
     },
     {
         image: [activity4, activity4_1],
         date: "August 04, 2019",
-        title: "",
-        description: ""
+        title: "Activity 4",
+        description: "Description 4"
     },
     {
       image: [activity5],
       date: "August 04, 2019",
-      title: "",
-      description: ""
+      title: "Activity 5",
+      description: "Description 5"
     },   
     {
       image: [activity6],
       date: "August 04, 2019",
-      title: "",
-      description: ""
+      title: "Activity 6",
+      description: "Description 6"
     },
   ];

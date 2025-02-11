@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { FaEnvelope, FaPhoneAlt, FaTwitter, FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ContactImage from "../../assets/images/test.jpg";
+import { contact_info } from "../../data/contact.js";
 import "./ContactForm.css";
 
 const ContactForm = () => {
@@ -24,12 +25,8 @@ const ContactForm = () => {
     }, 2000);
   };
 
-  const socialLinks = [
-    { icon: FaFacebook, url: "#" },
-    { icon: FaTwitter, url: "#" },
-    { icon: FaInstagram, url: "#" },
-    { icon: FaLinkedin, url: "#" },
-  ];
+  // Extract contact details and social links from contact_info
+  const { email, phone, address, socialLinks } = contact_info[0];
 
   return (
     <div className="contact-us-container">
@@ -104,13 +101,21 @@ const ContactForm = () => {
           </div>
           <h2>Or reach us directly</h2>
           <div className="contact-details">
+            {/* Use dynamic data for email and phone */}
             <div className="contact-item">
-              <FaEnvelope className="icon" /> contact@yourcompany.com
+              <FaEnvelope className="icon" /> {email}
             </div>
             <div className="contact-item">
-              <FaPhoneAlt className="icon" /> (123) 456-7890
+              <FaPhoneAlt className="icon" /> {phone}
             </div>
+            {/* Optional: Display address if needed */}
+            {address && (
+              <div className="contact-item">
+                <FaMapMarkerAlt  className="icon" /> {address}
+              </div>
+            )}
           </div>
+          {/* Render social media links dynamically */}
           <div className="social-media">
             {socialLinks.map((social, index) => (
               <motion.a
@@ -121,6 +126,7 @@ const ContactForm = () => {
                 whileHover={{ scale: 1.2, rotate: 360 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
+                {/* Render the icon dynamically */}
                 <social.icon />
               </motion.a>
             ))}

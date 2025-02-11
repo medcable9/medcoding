@@ -73,7 +73,7 @@ const ActivityCard = ({ image, date, title, description, onFlip }) => {
 };
 
 const Activities = () => {
-  const [isAnyCardFlipped, setIsAnyCardFlipped] = useState(false);
+  const [setIsAnyCardFlipped] = useState(false);
   const mainSwiperRef = useRef(null);
 
   const handleCardFlip = (isFlipped) => {

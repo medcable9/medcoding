@@ -10,7 +10,7 @@ export const agents = [
     { name: "Agent Two", logo: jubaili },
   ];
   
-export const agents_cities = ["Bekaa", "Beirut", "North Lebanon", "South Lebanon"];
+export const agents_cities = ["City 1", "City 2", "City 3", "City 4"];
 
 export const clients = [
   { id: 1, logo: undp, description: ''},
@@ -24,22 +24,22 @@ export const clients = [
 export const customers = {
     local: {
       "Government": [
-        { name: "", logo: army },
-        { name: "", logo: army }
+        { name: "c1", logo: army },
+        { name: "c2", logo: army }
       ],
       "Private Sector": [
-        { name: "", logo: jubaili },
-        { name: "", logo: jubaili }
+        { name: "c3", logo: jubaili },
+        { name: "c4", logo: jubaili }
       ]
     },
     international: {
       "NGOs": [
-        { name: "", logo: UNICEF },
-        { name: "", logo: undp }
+        { name: "c5", logo: UNICEF },
+        { name: "c6", logo: undp }
       ],
       "Aid Organizations": [
-        { name: "", logo: USAID },
-        { name: "", logo: USAID }
+        { name: "c7", logo: USAID },
+        { name: "c8", logo: USAID }
       ]
     }
   };
