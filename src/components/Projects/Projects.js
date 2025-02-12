@@ -20,7 +20,7 @@ const ProjectItem = ({ project }) => {
     <div className="project-item">
       <img 
         src={project.images[currentImageIndex]} 
-        alt={`${project.title} - Image ${currentImageIndex + 1}`} 
+        alt={`${project.title} - Img ${currentImageIndex + 1}`} 
       />
       <div className="project-info">
         <h3>{project.title}</h3>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import ContactImage from "../../assets/images/test.jpg";
-import { contact_info } from "../../data/contact.js";
+import { company_info } from "../../data/company_info.js";
 import "./ContactForm.css";
 
 const ContactForm = () => {
@@ -26,7 +26,7 @@ const ContactForm = () => {
   };
 
   // Extract contact details and social links from contact_info
-  const { email, phone, address, socialLinks } = contact_info[0];
+  const { email, phone, address, socialLinks } = company_info[0];
 
   return (
     <div className="contact-us-container">
@@ -111,7 +111,7 @@ const ContactForm = () => {
             {/* Optional: Display address if needed */}
             {address && (
               <div className="contact-item">
-                <FaMapMarkerAlt  className="icon" /> {address}
+                <FaMapMarkerAlt  className="icon" /> {address.name}
               </div>
             )}
           </div>

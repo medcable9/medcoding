@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./CompanyInfoSection.css";
 import companyImage from "../../assets/images/aa.jpeg";
+import { company_info } from "../../data/company_info";
 
 const CompanyInfo = () => {
+  const { the_four_features, about_description } = company_info[0];
   return (
     <section className="company-info">
       <div className="info-container">
@@ -21,7 +23,7 @@ const CompanyInfo = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Mediterranean Cables is a leading manufacturer of high-quality cables for a variety of industries, with over 14 years of experience. We've built a reputation for providing reliable, durable, and cost-effective solutions that meet the needs of our clients. Our state-of-the-art facility and advanced technology allow us to produce cables that meet the highest standards for performance, reliability, and safety.
+              {about_description}
             </motion.p>
           </div>
           <motion.div
@@ -40,24 +42,24 @@ const CompanyInfo = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
         >
           <div className="info-item">
-            <div className="feature-icon">💰</div>
-            <h3>Competitive Pricing</h3>
-            <p>Best value for your budget</p>
+            <div className="feature-icon">{the_four_features[0].icon}</div>
+            <h3>{the_four_features[0].title}</h3>
+            <p>{the_four_features[0].desc}</p>
           </div>
           <div className="info-item">
-            <div className="feature-icon">⏱️</div>
-            <h3>On-Time, Every Time</h3>
-            <p>Reliable delivery schedules</p>
+            <div className="feature-icon">{the_four_features[1].icon}</div>
+            <h3>{the_four_features[1].title}</h3>
+            <p>{the_four_features[1].desc}</p>
           </div>
           <div className="info-item">
-            <div className="feature-icon">✅</div>
-            <h3>ISO Certified</h3>
-            <p>Standards you can trust</p>
+            <div className="feature-icon">{the_four_features[2].icon}</div>
+            <h3>{the_four_features[2].title}</h3>
+            <p>{the_four_features[2].desc}</p>
           </div>
           <div className="info-item">
-            <div className="feature-icon">🛠️</div>
-            <h3>Advanced Testing</h3>
-            <p>Reliable testing methods</p>
+            <div className="feature-icon">{the_four_features[3].icon}</div>
+            <h3>{the_four_features[3].title}</h3>
+            <p>{the_four_features[3].desc}</p>
           </div>
         </motion.div>
       </div>

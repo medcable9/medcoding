@@ -1,10 +1,11 @@
+/* Modal Overlay */
 .product-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,144 +20,211 @@
   visibility: visible;
 }
 
+/* Modal Container */
 .modal-content {
-  background: white;
-  padding: 20px;
+  background: #ffffff;
   width: 90%;
+  max-width: 900px;
   max-height: 90vh;
   overflow-y: auto;
   border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 12px;
+  display: flex;
+  flex-direction: column;
   position: relative;
-  transform: scale(0.7);
-  opacity: 0;
-  transition: all 0.3s ease;
 }
 
-.product-modal.active .modal-content {
-  transform: scale(1);
-  opacity: 1;
-}
-
+/* Close Button */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
-  color: #2c3e50;
-}
-.close-btn:hover{
-  transform: scale(1.2);
-  color: #2c3e50;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
+.close-btn:hover {
+  color: #ff6b6b;
+}
+
+/* Modal Body */
+.modal-body {
+  display: flex;
+  padding: 30px;
+}
+
+/* Image Slider */
 .image-slider {
+  flex-basis: 50%;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-
 }
 
 .image-slider img {
   max-width: 100%;
-  max-height: 300px;
+  max-height: 250px;
   object-fit: contain;
+  border-radius: 10px;
 }
-
-.prev-btn, .next-btn {
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #3498db;
-  transition: color 0.3s ease;
-}
-
-.prev-btn:hover, .next-btn:hover {
-  transform: scale(1.2);
-  color: #2980b9;
-}
-
-.modal-tabs {
+/* .image-slider {
+  margin-top: -50px;
+  flex-basis: 50%;
+  position: relative;
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+  max-width: 40%;
 }
 
-.modal-tabs button {
-  background: none;
+.image-slider img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  position: relative;
+} */
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
   border: none;
+  padding: 8px 12px;
   cursor: pointer;
-  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Product Info Section */
+.info-section {
+  flex-basis: 50%;
+  padding-left: 30px;
+}
+
+.product-name {
+  color: #1E3456;
+  font-size: 22px;
+  text-align: left;
+}
+
+/* Overview Content */
+.overview-content {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.overview-content p {
+  margin: 5px 0;
   font-size: 14px;
-  color: #7f8c8d;
-  transition: all 0.3s ease;
+  color: #555;
 }
 
-.modal-tabs .active {
-  color: #3498db;
-  border-bottom: 2px solid #3498db;
-}
-
-.tab-content {
-  line-height: 1.6;
-  color: #34495e;
-}
-
+/* Document Links */
 .document-links {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  justify-content: flex-start;
+  gap: 15px;
   margin-top: 20px;
-  flex-wrap: wrap;
 }
 
 .document-links a {
   display: inline-block;
-  padding: 10px 15px;
-  background-color: #3498db;
+  padding: 10px 20px;
+  background-color: #000000;
   color: #fff;
   text-decoration: none;
-  border-radius: 25px;
   transition: background-color 0.3s ease;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .document-links a:hover {
-  background-color: #2980b9;
+  background-color: #E9C36A;
 }
 
-@media (min-width: 768px) {
-  .modal-content {
-    padding: 30px;
-    max-width: 600px;
-  }
-
-  .image-slider img {
-    max-height: 400px;
-  }
-
-  .modal-tabs button {
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-
-  .document-links {
-    gap: 20px;
-  }
-
-  .document-links a {
-    padding: 10px 20px;
-    font-size: 16px;
-  }
+/* Horizontal Menu Bar */
+.horizontal-menu {
+  display: flex;
+  justify-content: space-between;
+  background: #bebfc0;
+  padding: 10px 0;
+  border-top: 2px solid #bebfc0;
 }
 
-@media (min-width: 1024px) {
-  .modal-content {
-    max-width: 800px;
+.menu-tab {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-tab:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.menu-tab.active {
+  background: #dcdcdc;
+  font-weight: bold;
+}
+
+/* Tab Content */
+.tab-content {
+  padding: 20px;
+  background: #f8f9fa;
+  min-height: 100px;
+}
+
+.tab-pane {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-body {
+    flex-direction: column;
+  }
+
+  .image-slider,
+  .info-section {
+    flex-basis: 100%;
+  }
+
+  .info-section {
+    padding-left: 0;
+    padding-top: 20px;
+  }
+
+  .horizontal-menu {
+    flex-direction: column;
+  }
+
+  .menu-tab {
+    text-align: center;
+    padding: 15px;
   }
 }

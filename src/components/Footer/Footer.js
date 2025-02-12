@@ -9,13 +9,13 @@ import {
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import logo from '../../assets/images/logo.png';
-import { contact_info } from '../../data/contact.js';
+import { company_info } from '../../data/company_info.js';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   // Extract contact details and working hours from contact_info
-  const { email, phone, address, workingHours, socialLinks } = contact_info[0];
+  const { email, phone, address, workingHours, socialLinks, footer_description } = company_info[0];
 
   return (
     <motion.footer 
@@ -32,7 +32,7 @@ const Footer = () => {
           transition={{ type: "spring", stiffness: 300 }}
         >
           <img src={logo} alt="Company Logo" className="footer-logo" />
-          <p>Innovative solutions for your business needs. Committed to excellence and customer satisfaction.</p>
+          <p>{footer_description}</p>
           
           <div className="social-links">
             {socialLinks.map((social, index) => (
@@ -78,7 +78,7 @@ const Footer = () => {
           <div className="footer-contact-details">
             <div className="footer-contact-detail">
               <FaMapMarkerAlt />
-              <span>{address}</span>
+              <span>{address.name}</span>
             </div>
             <div className="footer-contact-detail">
               <FaPhoneAlt />
