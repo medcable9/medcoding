@@ -1,19 +1,19 @@
-import i11 from "../assets/images/aa.jpeg";
-import i12 from "../assets/images/test.jpg";
+import i11 from "../assets/projects/p10.jpeg";
+import i12 from "../assets/projects/p11.jpeg";
 
-import i21 from "../assets/images/bgservices.jpeg";
-import i22 from "../assets/images/aa.jpeg";
+import i21 from "../assets/projects/p12.jpeg";
+import i22 from "../assets/projects/p13.jpeg";
 
-import i31 from "../assets/images/bg.jpg";
-import i32 from "../assets/images/bgservices.jpeg";
+import i31 from "../assets/projects/p14.jpeg";
+import i32 from "../assets/projects/p15.jpeg";
 
-import i41 from "../assets/images/test.jpg";
-import i42 from "../assets/images/bg.jpg";
+import i41 from "../assets/projects/p16.jpg";
+import i42 from "../assets/projects/p17.jpg";
 
 export const projects = [
   { 
     title: "Project 1", 
-    country: "📍 USA", 
+    country: "📍 Iraq", 
     images: [
       i11,
       i12
@@ -21,7 +21,7 @@ export const projects = [
   },
   { 
     title: "Project 2", 
-    country: "📍 Germany", 
+    country: "📍 Lebanon", 
     images: [
       i21,
       i22
@@ -29,7 +29,7 @@ export const projects = [
   },
   { 
     title: "Project 3", 
-    country: "📍 Norway", 
+    country: "📍 Iraq", 
     images: [
       i31,
       i32
@@ -37,7 +37,7 @@ export const projects = [
   },
   { 
     title: "Project 4", 
-    country: "📍 Australia", 
+    country: "📍 Lebanon", 
     images: [
       i41,
       i42

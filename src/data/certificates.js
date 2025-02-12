@@ -4,6 +4,8 @@ import edliban4092 from '../assets/certificates/EDLiban4092.png';
 import edliban4090 from '../assets/certificates/EDLiban4090.png';
 import iso14001 from '../assets/certificates/medcables_14001-2015.png';
 import iso45001 from '../assets/certificates/medcables_45001-2018.png';
+import iso9001 from '../assets/certificates/ISO9001.png';
+import EDLiban5117 from '../assets/certificates/EDLiban5117.png';
 
 import edliban6101pdf from '../assets/certificates/EDLiban6101.pdf';
 import edliban6102pdf from '../assets/certificates/EDLiban6102.pdf';
@@ -11,6 +13,8 @@ import edliban4092pdf from '../assets/certificates/EDLiban4092.pdf';
 import edliban4090pdf from '../assets/certificates/EDLiban4090.pdf';
 import iso14001pdf from '../assets/certificates/medcables_14001-2015.pdf';
 import iso45001pdf from '../assets/certificates/medcables_45001-2018.pdf';
+import iso9001pdf from '../assets/certificates/ISO9001.pdf';
+import EDLiban5117pdf from '../assets/certificates/EDLiban5117.pdf';
 
 export const certificates = [
     {
@@ -59,6 +63,22 @@ export const certificates = [
       issuer: 'MQA',
       preview: iso45001,
       file: iso45001pdf,
+      color: '#2ecc71'
+    },
+    {
+      id: 7,
+      title: 'ISO 9001:2015',
+      issuer: 'SGS',
+      preview: iso9001,
+      file: iso9001pdf,
+      color: '#2ecc71'
+    },
+    {
+      id: 8,
+      title: 'ED Liban 5117',
+      issuer: 'ELECTRICITE DU LIBAN',
+      preview: EDLiban5117,
+      file: EDLiban5117pdf,
       color: '#2ecc71'
     }
   ];
