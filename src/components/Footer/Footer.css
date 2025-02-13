@@ -2,7 +2,7 @@
   /* background-color: rgb(15,59,130,0.1); */
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   color: #333;
-  padding: 50px 0 20px;
+  padding: 10px 0 0 0;
   font-family: 'Arial', sans-serif;
   position: relative;
   overflow: hidden;
@@ -26,9 +26,9 @@
 .footer-container {
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+  max-width: 1400px;
+  /* margin: 0 auto; */
+  /* padding: 0; */
   position: relative;
   z-index: 2;
 }
@@ -36,10 +36,10 @@
 .footer-column {
   flex: 1;
   margin: 0 15px;
-  background: rgba(255, 255, 255, 0.8);
+  /* background: rgba(255, 255, 255, 0.8); */
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  /* border-radius: 10px; */
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); */
   transition: all 0.3s ease;
 }
 

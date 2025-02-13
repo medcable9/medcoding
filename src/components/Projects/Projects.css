@@ -13,15 +13,15 @@
   
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two per row */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
   }
   
   .project-item {
     position: relative;
     width: 100%;
-    height: 350px; /* Same size for all */
-    border-radius: 15px;
+    height: 350px;
+    border-radius: 5px;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
   }
@@ -68,11 +68,16 @@
     transform: scale(1.05);
     opacity: 1;
   }
+
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   
-  /* Responsive */
   @media (max-width: 768px) {
     .projects-grid {
-      grid-template-columns: 1fr; /* Stack in mobile */
+      grid-template-columns: 1fr;
     }
   }
   

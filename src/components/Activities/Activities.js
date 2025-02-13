@@ -11,7 +11,6 @@ const ActivityCard = ({ image, date, title, description, onFlip }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const swiperRef = useRef(null);
 
-  // Ensure image is always an array
   const images = Array.isArray(image) ? image : [image];
 
   const handleFlip = () => {
@@ -73,7 +72,7 @@ const ActivityCard = ({ image, date, title, description, onFlip }) => {
 };
 
 const Activities = () => {
-  const [setIsAnyCardFlipped] = useState(false);
+  const [isAnyCardFlipped, setIsAnyCardFlipped] = useState(false);
   const mainSwiperRef = useRef(null);
 
   const handleCardFlip = (isFlipped) => {

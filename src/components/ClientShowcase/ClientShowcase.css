@@ -8,7 +8,7 @@
     font-size: 2.8rem;
     font-weight: bold;
     color: #1d3557;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
   }
   
   .client-grid {
@@ -20,15 +20,14 @@
   }
   
   .client-card {
-    background: white;
+    /* background: white; */
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); */
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e0e0e0;
+    /* border: 1px solid white; */
   }
   
   .client-card:hover {

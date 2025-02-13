@@ -105,7 +105,7 @@ export const certificates = [
     },
     {
       id: 10,
-      title: 'Certificate of Conformity for Goods Exported to Kurdistan',
+      title: 'Exported Goods to Kurdistan',
       issuer: 'intertek',
       preview: CertofConformity,
       file: CertofConformitypdf,
@@ -145,7 +145,7 @@ export const certificates = [
     },
     {
       id: 15,
-      title: 'Sarafand Hospital Electrical Cables Tests Witnessing Report',
+      title: 'Cables Tests Witnessing Report',
       issuer: 'Qualiconsult',
       preview: qualiconsult,
       file: qualiconsultpdf,

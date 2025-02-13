@@ -1,64 +1,20 @@
-/* HomePage.css */
-.home-page {
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Hero Section */
-  .hero {
-    background-color: #f5f5f5;
-    text-align: center;
-    padding: 50px 20px;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    color: #333;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
-  .cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  .cta-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* About Us Section */
-  .about-preview {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .about-preview h2 {
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .about-preview p {
-    font-size: 1.1rem;
-    color: #666;
-  }
-  
-  /* Footer Section */
-  .footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-  }
-  
-  .footer p {
-    margin: 0;
-  }
+.hero22-content {
+  width: 1500px;
+  display: flex;
+  flex-direction: column;
+  background-color: #dfdddb;
+}
+
+.hero22-content h2{
+  color: #1E3456;
+  /* font-family: "ITCNovareseMed"; */
+  line-height: 120%;
+  font-size: 2rem;
+}
+
+.hero22-content p{
+  color: black;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}

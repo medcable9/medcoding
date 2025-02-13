@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './CommonServices.css';
-import { services, description } from '../../data/services';
+import { services } from '../../data/services';
 
 const ServiceCard = ({ icon, title, description }) => (
   <motion.div 
@@ -10,10 +10,15 @@ const ServiceCard = ({ icon, title, description }) => (
     transition={{ type: "spring", stiffness: 300 }}
   >
     {icon}
-    <h3>{title}</h3>
-    <p>{description}</p>
+    <div className="service-title">
+      <h3>{title}</h3>
+    </div>
+    <div className="service-description">
+      <p>{description}</p>
+    </div>
   </motion.div>
 );
+
 
 const CommonServices = () => {
   return (
@@ -26,14 +31,6 @@ const CommonServices = () => {
         >
           Our Services
         </motion.h2>
-        <motion.p
-          className="services-description"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          { description }
-        </motion.p>
         <div className="services-grid">
           {services.map((service, index) => (
             <motion.div
