@@ -7,23 +7,29 @@ import "./ProductsPage.css";
 
 const ProductsPage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [filters, setFilters] = useState({ category: "", subcategory: "", searchTerm: "" });
+  const [filters, setFilters] = useState({ categories: [], subcategories: [], searchTerm: "" });
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
     const filtered = productCategories
-      .filter(cat => !filters.category || cat.name === filters.category)
-      .flatMap(cat => cat.subcategories)
-      .filter(subcat => !filters.subcategory || subcat.name === filters.subcategory)
-      .flatMap(subcat => subcat.products)
+      .filter(cat => filters.categories.length === 0 || filters.categories.includes(cat.name))
+      .flatMap(cat => 
+        cat.subcategories
+          .filter(subcat => filters.subcategories.length === 0 || filters.subcategories.includes(subcat.name))
+          .flatMap(subcat => subcat.products)
+      )
       .filter(product => 
         product.name.toLowerCase().includes(filters.searchTerm.toLowerCase())
       );
+
     setFilteredProducts(filtered);
   }, [filters]);
 
   const handleFilterChange = (newFilters) => {
-    setFilters(newFilters);
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      ...newFilters
+    }));
   };
 
   return (

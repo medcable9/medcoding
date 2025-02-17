@@ -12,7 +12,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1>Welcome to <br/><span>Mediterranean Cables</span></h1>
+          <h1><span>Mediterranean Cables</span></h1>
         </motion.div>
         <motion.div 
           className='hero22-content'

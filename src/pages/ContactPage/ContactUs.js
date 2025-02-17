@@ -10,7 +10,6 @@ const ContactUs = () => {
       <ContactForm />
       <section className="google-maps-section">
         <h2>Find Us Here</h2>
-        <p>Visit our office or find us on the map below:</p>
         <iframe
           title={address.name}
           src={`https://www.google.com/maps?q=${address.lat},${address.lng}&z=15&output=embed`}

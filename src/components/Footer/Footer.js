@@ -75,8 +75,8 @@ const Footer = () => {
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          {/* <h4><FaUserCircle />Contact Us</h4> */}
-          <h4>Contact Us</h4>
+          <h4><FaUserCircle />Contact Us</h4>
+          {/* <h4>Contact Us</h4> */}
           <div className="footer-contact-details">
             <div className="footer-contact-detail">
               <FaMapMarkerAlt />

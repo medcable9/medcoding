@@ -1,15 +1,16 @@
 .hero-section {
   color: white;
-  overflow: hidden;
-  background-image: url("../../assets/images/aa.jpeg");
-  background-size: cover; 
+  background-image: url("../../assets/images/hero-bg-down.png");
+  background-size: cover;
   background-position: center;
   position: relative;
-  height: 70vh;
+  min-height: 90vh;
   display: flex;
-  z-index: -1; 
   align-items: center;
   justify-content: center;
+  /* padding: 20px; */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  width: 100%; /* Take full width */
 }
 
 .hero-section::before {
@@ -20,51 +21,84 @@
   right: 0;
   bottom: 0;
   background-color: rgba(18, 40, 62, 0.6);
-}
-
-.hero2-content {
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
-  background-color: #dfdddb;
-}
-
-.hero2-content h2{
-  color: #1E3456;
-  /* font-family: "ITCNovareseMed"; */
-  line-height: 120%;
-  font-size: 1rem;
-}
-
-.hero2-content p{
-  color: black;
-  max-width: 800px;
-  margin: 0 auto;
-  margin-bottom: 30px;
+  z-index: -1;
 }
 
 .hero-main {
   position: relative;
-  z-index: 1;
-  text-align: center; 
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box; /* Ensure padding is included */
 }
 
 .hero-content {
-  width: auto;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding is included */
 }
 
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 20px;
+  word-break: break-word; /* Prevent long words from overflowing */
 }
 
 .hero-content h1 span {
   color: #F4A261;
-  font-size: 4rem;
+  font-size: 6rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(244, 162, 97, 0.2);
+  font-family: 'Playfair Display', serif;
+  display: block; /* Ensure it takes full width */
+}
+
+.hero22-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(223, 221, 219, 0.3);
+  padding: 20px;
+  backdrop-filter: blur(5px);
+  box-sizing: border-box;
+}
+
+.hero22-content h2 {
+  color: wheat;
+  line-height: 120%;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  word-break: break-word; /* Prevent long words from overflowing */
+}
+
+.hero22-content p {
+  color: #1d3557;
+  max-width: 100%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  word-break: break-word; /* Prevent long words from overflowing */
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: 100vh;
+    padding: 10px; /* Reduce padding on mobile */
+  }
+
   .hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+  }
+
+  .hero-content h1 span {
+    font-size: 3rem;
+  }
+
+  .hero22-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero22-content p {
+    font-size: 0.8rem;
   }
 }

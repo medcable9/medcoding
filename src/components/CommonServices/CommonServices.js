@@ -29,7 +29,7 @@ const CommonServices = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Our Services
+          Services
         </motion.h2>
         <div className="services-grid">
           {services.map((service, index) => (

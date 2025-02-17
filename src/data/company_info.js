@@ -5,7 +5,7 @@ export const company_info = [
       email: "email@gmail.com",
       phone: "+ (1) 123-456",
       address: {
-        name: "Location Name, Street, Country",
+        name: "Med cables, Tefahta, Lebanon",
         lat: 33.45133343518141, 
         lng: 35.361417915341946
       },

@@ -13,33 +13,36 @@ export const agents = [
 export const agents_cities = ["City 1", "City 2", "City 3", "City 4"];
 
 export const clients = [
-  { id: 1, logo: undp, description: ''},
-  { id: 2, logo: neu, description: ''},
-  { id: 3, logo: jubaili, description: ''},
-  { id: 4, logo: army, description: ''},
-  { id: 5, logo: UNICEF, description: ''},
-  { id: 6, logo: USAID, description: ''},
+  { id: 1, logo: undp, name: ''},
+  { id: 2, logo: neu, name: ''},
+  { id: 3, logo: jubaili, name: ''},
+  { id: 4, logo: army, name: ''},
+  { id: 5, logo: UNICEF, name: ''},
+  { id: 6, logo: USAID, name: ''},
 ];
-  
+
+const getClientById = (id) => clients.find((client) => client.id === id);
+
 export const customers = {
     local: {
       "Government": [
-        { name: "c1", logo: army },
-        { name: "c2", logo: army }
+        getClientById(4),
+        getClientById(2)
       ],
       "Private Sector": [
-        { name: "c3", logo: jubaili },
-        { name: "c4", logo: jubaili }
+        getClientById(1),
+        getClientById(6)
       ]
     },
+    /////////////////////////////
     international: {
       "NGOs": [
-        { name: "c5", logo: UNICEF },
-        { name: "c6", logo: undp }
+        getClientById(3),
+        getClientById(5)
       ],
       "Aid Organizations": [
-        { name: "c7", logo: USAID },
-        { name: "c8", logo: USAID }
+        getClientById(2),
+        getClientById(1)
       ]
     }
   };

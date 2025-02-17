@@ -87,9 +87,9 @@ const Activities = () => {
   };
 
   return (
-    <section className="activities-section">
+    <section className="activities-section" id="activities">
       <div className="activities-container">
-        <h2 className="activities-title">Our Activities</h2>
+        <h2 className="activities-title">Activities</h2>
         <Swiper
           ref={mainSwiperRef}
           modules={[Autoplay, Pagination]}

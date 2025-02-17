@@ -1,7 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./VideoComponent.css";
-import videoSource from "../../assets/vid.mov"; // Import your video file
+// import videoSource from "../../assets/vid.mov";
+import videoSource from "../../assets/vid2.MP4"; 
+// import videoSource from "../../assets/vid.mov"; 
 
 const HeroSection = () => {
   return (
