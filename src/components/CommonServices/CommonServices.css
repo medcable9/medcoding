@@ -1,6 +1,6 @@
 .our-services {
-  background-color: #F0EFEE;
-  padding: 30px 0;
+  background-color: #f8f9fa;
+  padding: 20px 0;
 }
 
 .services-container {
@@ -60,9 +60,9 @@
 }
 
 .service-description {
-  flex-grow: 1;
   display: flex;
   align-items: flex-start;
+  text-align: justify;
 }
 
 .service-card p {

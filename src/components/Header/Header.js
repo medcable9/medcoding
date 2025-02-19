@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { FaSearch, FaMapMarkerAlt, FaBars } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaSearch, FaMapMarkerAlt, FaBars, FaTimes } from 'react-icons/fa';
 import './Header.css';
 import logo from '../../assets/images/logo.png';
 import { company_info } from "../../data/company_info.js";
@@ -22,7 +22,7 @@ const Header = () => {
             setTimeout(() => {
                 searchAllElements(storedQuery);
                 localStorage.removeItem("searchQuery");
-            }, 500); // Delay ensures page loads first
+            }, 500);
         }
         return () => window.removeEventListener('scroll', handleScroll);
     }, [location.pathname]);
@@ -36,77 +36,78 @@ const Header = () => {
     };
 
     const searchAllElements = async (query) => {
-      query = query.toLowerCase();
-      const results = [];
-  
-      // ✅ Search the current page first
-      const elements = document.body.getElementsByTagName('*');
-      for (let element of elements) {
-          if (element.textContent.toLowerCase().includes(query)) {
-              let nearestLink = element.closest('a');
-              let nearestHeading = element.closest('h1, h2, h3, h4, h5, h6');
-  
-              if (nearestLink && nearestLink.href) {
-                  try {
-                      const url = new URL(nearestLink.href);
-                      results.push({ text: element.textContent.trim(), url: url.pathname });
-                  } catch (e) {
-                      console.error("Invalid URL:", nearestLink.href);
-                      continue;
-                  }
-              } else if (nearestHeading) {
-                  results.push({ text: element.textContent.trim(), element: nearestHeading });
-              }
-          }
-      }
-  
-      if (results.length > 0) {
-          return results;
-      }
-  
-      // ✅ Fetch and search content from other pages
-      const pages = ["/products", "/projects", "/certificates", "/about", "/contact"];
-      for (const page of pages) {
-          try {
-              const response = await fetch(page);
-              const text = await response.text();
-  
-              // Use a temporary container to parse the page content
-              const tempDiv = document.createElement("div");
-              tempDiv.innerHTML = text;
-  
-              if (tempDiv.textContent.toLowerCase().includes(query)) {
-                  return [{ url: page }];
-              }
-          } catch (error) {
-              console.error(`Error fetching ${page}:`, error);
-          }
-      }
-  
-      return [];
-  };
-  
+        query = query.toLowerCase();
+        const results = [];
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    localStorage.setItem("searchQuery", searchQuery);
+        // ✅ Search the current page first
+        const elements = document.body.getElementsByTagName('*');
+        for (let element of elements) {
+            if (element.textContent.toLowerCase().includes(query)) {
+                let nearestLink = element.closest('a');
+                let nearestHeading = element.closest('h1, h2, h3, h4, h5, h6');
 
-    const results = await searchAllElements(searchQuery);
-
-    if (results.length > 0) {
-        if (results[0].url) {
-            navigate(results[0].url); // Navigate to the page
-        } else if (results[0].element) {
-            results[0].element.scrollIntoView({ behavior: 'smooth' });
+                if (nearestLink && nearestLink.href) {
+                    try {
+                        const url = new URL(nearestLink.href);
+                        results.push({ text: element.textContent.trim(), url: url.pathname });
+                    } catch (e) {
+                        console.error("Invalid URL:", nearestLink.href);
+                        continue;
+                    }
+                } else if (nearestHeading) {
+                    results.push({ text: element.textContent.trim(), element: nearestHeading });
+                }
+            }
         }
-    }
 
-    setSearchQuery('');
-};
+        if (results.length > 0) {
+            return results;
+        }
 
-  const handleInputChange = (e) => {
-      setSearchQuery(e.target.value);
-  };
+        // ✅ Fetch and search content from other pages
+        const pages = ["/products", "/projects", "/certificates", "/about", "/contact"];
+        for (const page of pages) {
+            try {
+                const response = await fetch(page);
+                const text = await response.text();
+
+                // Use a temporary container to parse the page content
+                const tempDiv = document.createElement("div");
+                tempDiv.innerHTML = text;
+
+                if (tempDiv.textContent.toLowerCase().includes(query)) {
+                    return [{ url: page }];
+                }
+            } catch (error) {
+                console.error(`Error fetching ${page}:`, error);
+            }
+        }
+
+        return [];
+    };
+
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        localStorage.setItem("searchQuery", searchQuery);
+
+        const results = await searchAllElements(searchQuery);
+
+        if (results.length > 0) {
+            if (results[0].url) {
+                navigate(results[0].url); // Navigate to the page
+            } else if (results[0].element) {
+                results[0].element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        setSearchQuery('');
+        setIsMobileMenuOpen(false); // Close the mobile menu after search
+    };
+
+
+    const handleInputChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -154,30 +155,49 @@ const Header = () => {
                     </motion.button>
                 </div>
 
-                <button className="mobile-menu-btn" onClick={toggleMobileMenu}><FaBars /></button>
+                <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+                    {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+                </button>
 
-                <nav className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-                    <form onSubmit={handleSearch} className="mobile-search-form">
-                        <input
-                            type="text"
-                            placeholder="Search..."
-                            value={searchQuery}
-                            onChange={handleInputChange}
-                            className="mobile-search-input"
-                        />
-                        <button type="submit" className="mobile-search-btn"><FaSearch /></button>
-                    </form>
-
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.path}
-                            to={link.path}
-                            className={location.pathname === link.path ? 'active' : ''}
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <motion.nav
+                            className="nav-menu"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.3 }}
                         >
-                            {link.name}
-                        </Link>
-                    ))}
-                </nav>
+                            <form onSubmit={handleSearch} className="mobile-search-form">
+                                <input
+                                    type="text"
+                                    placeholder="Search..."
+                                    value={searchQuery}
+                                    onChange={handleInputChange}
+                                    className="mobile-search-input"
+                                />
+                                <button type="submit" className="mobile-search-btn"><FaSearch /></button>
+                            </form>
+
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.path}
+                                    to={link.path}
+                                    className={location.pathname === link.path ? 'active' : ''}
+                                    onClick={() => {
+                                        toggleMobileMenu();
+                                    }}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+
+                            <button className="mobile-location-btn" onClick={openGoogleMaps}>
+                                <FaMapMarkerAlt /> Find Us
+                            </button>
+                        </motion.nav>
+                    )}
+                </AnimatePresence>
             </div>
         </motion.header>
     );

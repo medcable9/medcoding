@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import ContactImage from "../../assets/images/test.jpg";
 import { company_info } from "../../data/company_info.js";
 import "./ContactForm.css";
+import emailjs from '@emailjs/browser';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "", subject: "", country: "" });
@@ -15,15 +16,32 @@ const ContactForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setFormStatus("Your message has been sent! We'll get back to you soon.");
-      setFormData({ name: "", email: "", message: "", subject: "", country: "" });
-    }, 2000);
-  };
+    setFormStatus(""); // Clear any previous status messages
+
+    try {
+        // EmailJS Configuration - Replace with your actual values
+        const serviceId = 'service_x2it6i9';
+        const templateId = 'template_uedx14h';
+        const publicKey = 'ilzSoujzf2SnRpjng';
+
+        // Send the email using EmailJS
+        await emailjs.send(serviceId, templateId, formData, publicKey);
+
+        // If the email was sent successfully, update the form status
+        setFormStatus("Your message has been sent! We'll get back to you soon.");
+        setFormData({ name: "", email: "", message: "", subject: "", country: "" });
+    } catch (error) {
+        // If there was an error sending the email, display an error message
+        setFormStatus("Oops! Something went wrong, please try again later.");
+        console.error("Error sending email:", error);
+    } finally {
+        setIsSubmitting(false);
+    }
+};
+
 
   // Extract contact details and social links from contact_info
   const { email, phone, address, socialLinks } = company_info[0];
@@ -106,7 +124,12 @@ const ContactForm = () => {
               <FaEnvelope className="icon" /> {email}
             </div>
             <div className="contact-item">
-              <FaPhoneAlt className="icon" /> {phone}
+              <FaPhoneAlt className="icon" />
+              <div className="phone-numbers">
+                {Object.values(phone).map((phoneNumber, index) => (
+                  <span key={index} className="phone-number">{phoneNumber}</span>
+                ))}
+              </div>
             </div>
             {/* Optional: Display address if needed */}
             {address && (

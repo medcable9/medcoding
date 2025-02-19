@@ -21,7 +21,7 @@ const CertificatesPage = () => {
 
   return (
     <div className="certificates-container">
-      <h2>Our Certifications</h2>
+      <h2>Certifications</h2>
       <div className="certificates-grid">
         {certificates.map((cert) => (
           <div 

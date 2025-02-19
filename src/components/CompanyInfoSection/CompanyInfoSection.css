@@ -1,6 +1,7 @@
 .company-info {
-  background-color: #DFDDDB;
-  padding: 40px 0;
+  /* background-color: #DFDDDB; */
+  background-color: #F0EFEE;
+  padding: 20px 0;
 }
 
 .info-container {
@@ -42,18 +43,19 @@
   color: #457b9d;
   font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-align: left;
 }
 
 .info-grid {
+  margin-bottom: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
 }
 
 .info-item {
-  background-color: #DFDDDB;
+  background-color: #F0EFEE;
   padding: 0px;
   border-radius: 10px;
   /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */

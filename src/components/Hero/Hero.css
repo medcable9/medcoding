@@ -8,9 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding: 20px; */
-  box-sizing: border-box; /* Ensure padding is included in the width */
-  width: 100%; /* Take full width */
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .hero-section::before {
@@ -64,6 +63,7 @@
 
 .hero22-content h2 {
   color: wheat;
+  font-weight: bold;
   line-height: 120%;
   font-size: 1.5rem;
   margin-bottom: 20px;
@@ -71,7 +71,8 @@
 }
 
 .hero22-content p {
-  color: #1d3557;
+  color: wheat;
+  font-weight: bold;
   max-width: 100%;
   margin: 0 auto;
   margin-bottom: 30px;

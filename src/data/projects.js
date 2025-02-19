@@ -12,7 +12,7 @@ import i42 from "../assets/projects/p17.jpg";
 
 export const projects = [
   { 
-    title: "Project 1", 
+    title: "", 
     country: "📍 Iraq", 
     images: [
       i11,
@@ -20,7 +20,7 @@ export const projects = [
     ]
   },
   { 
-    title: "Project 2", 
+    title: "", 
     country: "📍 Lebanon", 
     images: [
       i21,
@@ -28,7 +28,7 @@ export const projects = [
     ]
   },
   { 
-    title: "Project 3", 
+    title: "", 
     country: "📍 Iraq", 
     images: [
       i31,
@@ -36,7 +36,7 @@ export const projects = [
     ]
   },
   { 
-    title: "Project 4", 
+    title: "", 
     country: "📍 Lebanon", 
     images: [
       i41,

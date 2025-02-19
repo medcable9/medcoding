@@ -34,7 +34,7 @@ export default function Projects() {
   return (
     <section className="projects-section">
       <h2 className="text-4xl font-bold mb-10 text-gray-800">
-        Our Projects
+        Projects
       </h2>
 
       <div className="projects-grid">

@@ -150,11 +150,23 @@
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
   margin: 10px 0;
   color: #fff;
 }
+
+.phone-numbers {
+  display: flex;
+  flex-direction: column; /* Stacks phone numbers vertically */
+  margin-left: 10px; /* Space between the icon and the numbers */
+}
+
+.phone-number {
+  /* Optional styling for each phone number */
+  margin-bottom: 5px; /* Space between each phone number */
+}
+
 
 .icon {
   font-size: 22px;

@@ -1,12 +1,15 @@
 import React from 'react';
 import CompanyInfo from "../../components/CompanyInfoSection/CompanyInfoSection";
-import AgentsAndCustomers from "../../components/AgentsAndCustomers/AgentsAndCustomers"
+import Customers from "../../components/AgentsAndCustomers/CustomersSection"
+import AgentsSection from '../../components/AgentsAndCustomers/AgentsSection';
+import "./About.css";
 
 function About() {
   return (
-    <div className="about-us-page">
+    <div className="about-page">
       <CompanyInfo />
-      <AgentsAndCustomers />
+      < AgentsSection/>
+      <Customers />
     </div>
   );
 }

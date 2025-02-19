@@ -34,7 +34,7 @@ const ProductsPage = () => {
 
   return (
     <div className="products-page">
-      <h2>Our Products</h2>
+      <h2>Products</h2>
       <ProductFilter 
         categories={productCategories} 
         onFilterChange={handleFilterChange}

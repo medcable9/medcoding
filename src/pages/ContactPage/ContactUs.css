@@ -2,7 +2,7 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 100px 0;
-    background-color: #F8F9FA;
+    background-color: #F0EFEE;
     overflow-x: hidden;
 }
 h2 {
@@ -22,7 +22,7 @@ text-align: center;
 .google-maps-section {
   text-align: center;
   padding: 40px;
-  background-color: #F8F9FA;
+  background-color: #F0EFEE;
 }
 
 .google-maps-section iframe {

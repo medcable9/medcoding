@@ -1,0 +1,218 @@
+/* CustomersSection.css */
+.customers-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px 20px 20px;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  background-color: #F0EFEE;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #1d3557;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.section-description {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 2rem;
+}
+
+/* Customers Section */
+.customers-section {
+  margin-bottom: 4rem;
+}
+
+.customer-category {
+  display: flex;
+  margin-bottom: 3rem;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.category-title {
+  font-size: 2.2rem;
+  color: #34495e;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  min-height: 3rem;
+  flex: 0 0 200px;
+  padding-right: 20px;
+}
+
+.subcategories-grid {
+  display: inline-grid;      
+  gap: 20px;
+  background-color: #F0EFEE;
+  /* box-shadow: 0 4px 9px rgba(0, 0, 0, 0.3); */
+  padding: 20px;
+  margin-top: 40px;
+  margin-left: 200px;
+
+}
+
+.subcategory {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  /* height: 450px; */
+  /* padding: 1.5rem; */
+  /* box-sizing: border-box; */
+}
+
+.subcategory-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-align: center;
+  border-bottom: 2px solid #ecf0f1;
+  padding-bottom: 0.5rem;
+}
+
+.customer-list {
+  display: flex;
+  flex-wrap: wrap; /* Wrap customer items */
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-start; /* Align items to the start */
+}
+
+.customer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: calc(25% - 20px); /* Ensure four items per row with gap */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.customer-item:hover {
+  transform: scale(1.1);
+}
+
+.customer-logo {
+  width: 140px;
+  height: 110px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.customer-name {
+  font-size: 0.9rem;
+  color: #34495e;
+}
+
+/* Google Maps Section */
+.global-maps-section {
+  text-align: center;
+  padding: 40px;
+  background-color: #F8F9FA;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 500px;
+  min-height: 400px;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #ffffff;
+  color: #502c2f;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.leaflet-popup-tip {
+  background-color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .google-maps-section {
+    padding: 30px;
+  }
+
+  .leaflet-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .agents-customers-container {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .category-title {
+    font-size: 1.75rem;
+    text-align: center; /* Center align category title on smaller screens */
+    flex: 1 0 100%; /* Make the title take up full width */
+    padding-right: 0; /* Remove padding */
+    margin-bottom: 1rem; /* Add margin at the bottom */
+  }
+
+  .subcategories-grid {
+    flex-direction: column; /* Stack subcategories vertically on smaller screens */
+  }
+
+  .customer-list {
+    display: flex;
+    flex-direction: row; /* Arrange items in a row */
+    flex-wrap: wrap; /* Wrap items to the next line if they don't fit */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .customer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: calc(50% - 20px);
+    box-sizing: border-box;
+  }
+
+  .customer-logo {
+    width: 100px;
+    height: 80px;
+  }
+
+  .customer-name {
+    font-size: 0.8rem;
+  }
+
+  .subcategory {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .customer-category {
+    flex-direction: column; /* Stack category title and customer list vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .subcategories-grid {
+    flex-direction: column;
+  }
+  .customer-item {
+    width: calc(50% - 10px); /* Two items per row on smaller screens */
+  }
+  .leaflet-container {
+    height: 300px;
+  }
+}

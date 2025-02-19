@@ -1,9 +1,13 @@
-import { FaTwitter, FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaTiktok, FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export const company_info = [
     {
-      email: "email@gmail.com",
-      phone: "+ (1) 123-456",
+      email: "medcables@hotmail.com",
+      phone: {
+        phone1: "+9617420830",
+        phone2: "+9617420850",
+        phone3: "+9617420840",
+      },
       address: {
         name: "Med cables, Tefahta, Lebanon",
         lat: 33.45133343518141, 
@@ -39,10 +43,10 @@ export const company_info = [
         { days: "Sunday", hours: "Closed" },
       ],
       socialLinks: [
-        { icon: FaFacebook, url: "#" },
-        { icon: FaTwitter, url: "#" },
-        { icon: FaInstagram, url: "#" },
-        { icon: FaLinkedin, url: "#" },
+        { icon: FaFacebook, url: "https://www.facebook.com/medcables" },
+        { icon: FaTiktok, url: "https://www.tiktok.com/@medcables_1?_t=ZS-8u003gRKsqI&_r=1" },
+        { icon: FaInstagram, url: "https://www.instagram.com/medcables_?igsh=Z2VicmoxcTJuYWhz" },
+        { icon: FaLinkedin, url: "https://www.linkedin.com/company/90653767/admin/" },
       ]
     }
 ]

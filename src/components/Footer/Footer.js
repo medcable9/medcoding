@@ -83,8 +83,12 @@ const Footer = () => {
               <span>{address.name}</span>
             </div>
             <div className="footer-contact-detail">
-              <FaPhoneAlt />
-              <span>{phone}</span>
+              {Object.values(phone).map((phoneNumber, index) => (
+                <React.Fragment key={index}>
+                  <FaPhoneAlt />
+                  <span>{phoneNumber}</span>
+                </React.Fragment>
+              ))}
             </div>
             <div className="footer-contact-detail">
               <FaEnvelope />

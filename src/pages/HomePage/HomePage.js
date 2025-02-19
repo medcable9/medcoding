@@ -3,7 +3,9 @@ import HeroSection from '../../components/Hero/Hero';
 import ClientShowcase from "../../components/ClientShowcase/ClientShowcase";
 import Services from "../../components/CommonServices/CommonServices"
 import Activities from "../../components/Activities/Activities"
-import VideoComponent from "../../components/VideoComponent/VideoComponent"
+import FeaturedProduct from '../../components/FeaturedProduct/FeaturedProduct';
+
+
 import './HomePage.css';
 
 function HomePage() {
@@ -11,7 +13,7 @@ function HomePage() {
     <div className="home-page">
       <HeroSection />
       <Services />
-      <VideoComponent />
+      <FeaturedProduct/>
       <Activities />
       <ClientShowcase />
     </div>
