@@ -10,6 +10,7 @@
 
 .agents-content {
   flex: 1;
+  margin-left: 50px;
 }
 
 .agents-content h2 {
@@ -29,14 +30,15 @@
   gap: 2rem;
   flex: 1;
   margin-top: 30px;
-  justify-content: flex-start; /* Align images to the right */
+  justify-content: flex-start;
+  margin-left: 160px;
 }
 
 .agents-card {
   background: #f8f9fa;
   width: 200px;
   text-align: center;
-  height: 200px; /* Increased height */
+  height: 200px;
 }
 
 .agent-image {
@@ -62,5 +64,8 @@
 
   .agents-content h2 {
     margin-top: 20px;
+  }
+  .agents-container {
+    margin-left: 0;
   }
 }
