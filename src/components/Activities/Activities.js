@@ -77,6 +77,7 @@ const Activities = () => {
 
   const handleCardFlip = (isFlipped) => {
     setIsAnyCardFlipped(isFlipped);
+    console.log('Is any card flipped:', isAnyCardFlipped);
     if (mainSwiperRef.current && mainSwiperRef.current.swiper) {
       if (isFlipped) {
         mainSwiperRef.current.swiper.autoplay.stop();
