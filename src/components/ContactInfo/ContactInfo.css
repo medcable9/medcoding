@@ -1,0 +1,152 @@
+.contact-info-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  }
+  
+  .map-section {
+    flex: 1;
+    padding: 0;
+    background-color: #F0EFEE;
+  }
+  
+  .map-section h2 {
+    color: #1d3557;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .map-section iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .contact-info-section {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 40px;
+    background-color: #457B9D;
+  }
+  
+  .contact-image-wrapper {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .contact-section-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-image-wrapper:hover .contact-section-image {
+    transform: scale(1.1);
+  }
+  
+  .contact-info-section h2 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 1.6rem;
+  }
+  
+  .contact-details {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 10px 0;
+    color: #fff;
+  }
+  
+  .phone-numbers,
+  .email-addresses {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    align-items: flex-start;
+  }
+
+  .phone-number,
+  .email-address {
+    margin-bottom: 5px;
+  }
+  
+  .icon {
+    font-size: 22px;
+    color: #fff;
+  }
+  
+  .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .social-media a {
+    font-size: 24px;
+    color: white;
+    transition: all 0.4s ease;
+  }
+  
+  .social-media a:hover {
+    color: #E9C36A;
+    transform: scale(1.2) rotate(360deg);
+  }
+  
+  @media (max-width: 768px) {
+    .contact-info-container {
+      flex-direction: column;
+      margin: 20px;
+    }
+  
+    .map-section,
+    .contact-info-section {
+      padding: 25px;
+    }
+  
+    .map-section h2 {
+      font-size: 2.2rem;
+    }
+  
+    .contact-info-section h2 {
+      font-size: 1.4rem;
+    }
+  
+    .contact-image-wrapper {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .icon {
+      font-size: 20px;
+    }
+  
+    .social-media a {
+      font-size: 22px;
+    }
+  }
+  

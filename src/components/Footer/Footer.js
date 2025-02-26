@@ -77,22 +77,40 @@ const Footer = () => {
         >
           <h4><FaUserCircle />Contact Us</h4>
           {/* <h4>Contact Us</h4> */}
-          <div className="footer-contact-details">
+          <div className="footer-contact-details lists">
             <div className="footer-contact-detail">
-              <FaMapMarkerAlt />
-              <span>{address.name}</span>
+              <div className="list-item">
+                <FaMapMarkerAlt />
+                <span>{address.name}</span>
+              </div>
             </div>
-            <div className="footer-contact-detail">
+            {/* <div className="footer-contact-detail lists">
               {Object.values(phone).map((phoneNumber, index) => (
-                <React.Fragment key={index}>
+                <div key={index} className="list-item">
                   <FaPhoneAlt />
                   <span>{phoneNumber}</span>
-                </React.Fragment>
+                </div>
               ))}
+            </div> */}
+            <div className="footer-contact-detail lists">
+              <div className="list-item">
+                <FaPhoneAlt/>
+                <div className="f-phone-numbers">
+                  {Object.values(phone).map((phoneNumber, index) => (
+                    <span key={index} className="f-phone-number">{phoneNumber}</span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="footer-contact-detail">
-              <FaEnvelope />
-              <span>{email}</span>
+            <div className="footer-contact-detail lists">
+              <div className="list-item">
+                <FaEnvelope/>
+                <div className="f-email-addresses">
+                  {Object.values(email).map((emailA, index) => (
+                    <span key={index} className="f-email-address">{emailA}</span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

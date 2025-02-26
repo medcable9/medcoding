@@ -3,6 +3,8 @@ import img1 from "../assets/images/cable.png";
 export const productCategories = [
   {
     name: "Power Cables",
+    image: img1,
+    description: "Power Cables Description",
     subcategories: [
       {
         name: "High Cables",
@@ -35,6 +37,8 @@ export const productCategories = [
   },
   {
     name: "Overhead Conductor Cables",
+    image: img1,
+    description: "Overhead Conductor Cables Description",
     subcategories: [
       {
         name: "High Cables",
@@ -67,6 +71,8 @@ export const productCategories = [
   },
   {
     name: "Medium Voltage Cables",
+    image: img1,
+    description: "Medium Voltage Cables Description",
     subcategories: [
       {
         name: "Underground Cables",
@@ -99,6 +105,8 @@ export const productCategories = [
   },
   {
     name: "Category 2",
+    image: img1,
+    description: "Category 2 Description",
     subcategories: [
       {
         name: "SubCat2 Cables",

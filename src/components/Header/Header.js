@@ -1,31 +1,64 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaSearch, FaMapMarkerAlt, FaBars, FaTimes } from 'react-icons/fa';
+import { IoMdClose } from 'react-icons/io';
 import './Header.css';
 import logo from '../../assets/images/logo.png';
 import { company_info } from "../../data/company_info.js";
+import { productCategories } from "../../data/products";
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
+    const [searchSuggestions, setSearchSuggestions] = useState([]);
+    const [mobileSearchQuery, setMobileSearchQuery] = useState('');
+    const mobileSearchRef = useRef(null);
     const location = useLocation();
     const navigate = useNavigate();
+    const searchRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
-
-        const storedQuery = localStorage.getItem("searchQuery");
-        if (storedQuery) {
-            setTimeout(() => {
-                searchAllElements(storedQuery);
-                localStorage.removeItem("searchQuery");
-            }, 500);
-        }
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [location.pathname]);
+    }, []);
+
+    useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const searchTerm = searchParams.get("search") || "";
+        setSearchQuery(searchTerm);
+    }, [location]);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (searchRef.current && !searchRef.current.contains(event.target) &&
+                mobileSearchRef.current && !mobileSearchRef.current.contains(event.target)) {
+                setSearchSuggestions([]);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    const clearSearch = () => {
+        setSearchQuery('');
+        setSearchSuggestions([]);
+        if (location.pathname === '/products') {
+            navigate('/products');
+        }
+    };
+    const clearMobileSearch = () => {
+        setMobileSearchQuery('');
+        setSearchSuggestions([]);
+        if (location.pathname === '/products') {
+            navigate('/products');
+        }
+    };
 
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
@@ -35,78 +68,45 @@ const Header = () => {
         window.open(googleMapsUrl, '_blank');
     };
 
-    const searchAllElements = async (query) => {
-        query = query.toLowerCase();
-        const results = [];
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchQuery(value);
+        
+        if (value.length > 0) {
+            const suggestions = productCategories
+                .flatMap(cat => cat.subcategories.flatMap(subcat => subcat.products))
+                .filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
+                .slice(0, 5); // Limit to 5 suggestions
+            setSearchSuggestions(suggestions);
+        } else {
+            setSearchSuggestions([]);
+        }
 
-        // ✅ Search the current page first
-        const elements = document.body.getElementsByTagName('*');
-        for (let element of elements) {
-            if (element.textContent.toLowerCase().includes(query)) {
-                let nearestLink = element.closest('a');
-                let nearestHeading = element.closest('h1, h2, h3, h4, h5, h6');
-
-                if (nearestLink && nearestLink.href) {
-                    try {
-                        const url = new URL(nearestLink.href);
-                        results.push({ text: element.textContent.trim(), url: url.pathname });
-                    } catch (e) {
-                        console.error("Invalid URL:", nearestLink.href);
-                        continue;
-                    }
-                } else if (nearestHeading) {
-                    results.push({ text: element.textContent.trim(), element: nearestHeading });
-                }
+        // Navigate to products page with search query
+        if (location.pathname !== '/products') {
+            navigate(`/products?search=${encodeURIComponent(value)}`);
+        } else {
+            // If already on products page, update URL
+            const searchParams = new URLSearchParams(location.search);
+            if (value) {
+                searchParams.set("search", value);
+            } else {
+                searchParams.delete("search");
             }
+            navigate(`${location.pathname}?${searchParams.toString()}`, { replace: true });
         }
-
-        if (results.length > 0) {
-            return results;
-        }
-
-        // ✅ Fetch and search content from other pages
-        const pages = ["/products", "/projects", "/certificates", "/about", "/contact"];
-        for (const page of pages) {
-            try {
-                const response = await fetch(page);
-                const text = await response.text();
-
-                // Use a temporary container to parse the page content
-                const tempDiv = document.createElement("div");
-                tempDiv.innerHTML = text;
-
-                if (tempDiv.textContent.toLowerCase().includes(query)) {
-                    return [{ url: page }];
-                }
-            } catch (error) {
-                console.error(`Error fetching ${page}:`, error);
-            }
-        }
-
-        return [];
     };
 
-    const handleSearch = async (e) => {
-        e.preventDefault();
-        localStorage.setItem("searchQuery", searchQuery);
-
-        const results = await searchAllElements(searchQuery);
-
-        if (results.length > 0) {
-            if (results[0].url) {
-                navigate(results[0].url); // Navigate to the page
-            } else if (results[0].element) {
-                results[0].element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
-        setSearchQuery('');
-        setIsMobileMenuOpen(false); // Close the mobile menu after search
+    const handleSuggestionClick = (productName) => {
+        setSearchQuery(productName);
+        setSearchSuggestions([]);
+        navigate(`/products?search=${encodeURIComponent(productName)}`);
     };
 
-
-    const handleInputChange = (e) => {
-        setSearchQuery(e.target.value);
+    const handleMobileSearchChange = (e) => {
+        const value = e.target.value;
+        setMobileSearchQuery(value);
+        handleSearchChange(e);
     };
 
     const navLinks = [
@@ -114,8 +114,7 @@ const Header = () => {
         { name: 'Products', path: '/products' },
         { name: 'Projects', path: '/projects' },
         { name: 'Certificates', path: '/certificates' },
-        { name: 'About us', path: '/about' },
-        { name: 'Contact us', path: '/contact' }
+        { name: 'About us', path: '/about' }
     ];
 
     return (
@@ -139,16 +138,30 @@ const Header = () => {
                 </nav>
 
                 <div className="header-actions">
-                    <form onSubmit={handleSearch} className="search-form">
+                    <div className="search-form" ref={searchRef}>
                         <input
                             type="text"
-                            placeholder="Search..."
+                            placeholder="Search products..."
                             value={searchQuery}
-                            onChange={handleInputChange}
+                            onChange={handleSearchChange}
                             className="search-input"
                         />
-                        <button type="submit" className="search-btn"><FaSearch /></button>
-                    </form>
+                        {searchQuery && (
+                            <button className="clear-search" onClick={clearSearch}>
+                                <IoMdClose />
+                            </button>
+                        )}
+                        <FaSearch className="search-icon" />
+                        {searchSuggestions.length > 0 && (
+                            <ul className="search-suggestions">
+                                {searchSuggestions.map((product, index) => (
+                                    <li key={index} onClick={() => handleSuggestionClick(product.name)}>
+                                        {product.name}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
 
                     <motion.button className="location-btn" whileHover={{ scale: 1.15 }} onClick={openGoogleMaps}>
                         <FaMapMarkerAlt />
@@ -158,47 +171,62 @@ const Header = () => {
                 <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
                     {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>
-
-                <AnimatePresence>
-                    {isMobileMenuOpen && (
-                        <motion.nav
-                            className="nav-menu"
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            <form onSubmit={handleSearch} className="mobile-search-form">
-                                <input
-                                    type="text"
-                                    placeholder="Search..."
-                                    value={searchQuery}
-                                    onChange={handleInputChange}
-                                    className="mobile-search-input"
-                                />
-                                <button type="submit" className="mobile-search-btn"><FaSearch /></button>
-                            </form>
-
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.path}
-                                    to={link.path}
-                                    className={location.pathname === link.path ? 'active' : ''}
-                                    onClick={() => {
-                                        toggleMobileMenu();
-                                    }}
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-
-                            <button className="mobile-location-btn" onClick={openGoogleMaps}>
-                                <FaMapMarkerAlt /> Find Us
-                            </button>
-                        </motion.nav>
-                    )}
-                </AnimatePresence>
             </div>
+
+            {/* Mobile search bar */}
+            <div className="mobile-search-form" ref={mobileSearchRef}>
+                <input
+                    type="text"
+                    placeholder="Search products..."
+                    value={mobileSearchQuery}
+                    onChange={handleMobileSearchChange}
+                    className="mobile-search-input"
+                />
+                {mobileSearchQuery && (
+                    <button className="clear-mobile-search" onClick={clearMobileSearch}>
+                        <IoMdClose />
+                    </button>
+                )}
+                <FaSearch className="mobile-search-icon" />
+                {searchSuggestions.length > 0 && (
+                    <ul className="mobile-search-suggestions">
+                        {searchSuggestions.map((product, index) => (
+                            <li key={index} onClick={() => handleSuggestionClick(product.name)}>
+                                {product.name}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.nav
+                        className="nav-menu"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.3 }}
+                    >
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.path}
+                                to={link.path}
+                                className={location.pathname === link.path ? 'active' : ''}
+                                onClick={() => {
+                                    toggleMobileMenu();
+                                }}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+
+                        <button className="mobile-location-btn" onClick={openGoogleMaps}>
+                            <FaMapMarkerAlt /> Find Us
+                        </button>
+                    </motion.nav>
+                )}
+            </AnimatePresence>
         </motion.header>
     );
 };

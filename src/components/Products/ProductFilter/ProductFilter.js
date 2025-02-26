@@ -1,18 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./ProductFilter.css";
-import { FaSearch } from 'react-icons/fa';
 
-const ProductFilter = ({ categories, onFilterChange }) => {
+const ProductFilter = ({ categories, onFilterChange, onReset, currentFilters }) => {
   const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
   const [subcategoryDropdownOpen, setSubcategoryDropdownOpen] = useState(false);
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedSubcategories, setSelectedSubcategories] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategories, setSelectedCategories] = useState(currentFilters.categories);
+  const [selectedSubcategories, setSelectedSubcategories] = useState(currentFilters.subcategories);
 
   const categoryDropdownRef = useRef(null);
   const subcategoryDropdownRef = useRef(null);
 
-  const debounceTimeout = useRef(null);
+  useEffect(() => {
+    setSelectedCategories(currentFilters.categories);
+    setSelectedSubcategories(currentFilters.subcategories);
+  }, [currentFilters]);
 
   const toggleCategoryDropdown = () => {
     setCategoryDropdownOpen(!categoryDropdownOpen);
@@ -35,7 +36,6 @@ const ProductFilter = ({ categories, onFilterChange }) => {
       const newCategories = prev.includes(category)
         ? prev.filter((c) => c !== category)
         : [...prev, category];
-
       return newCategories;
     });
   };
@@ -46,38 +46,28 @@ const ProductFilter = ({ categories, onFilterChange }) => {
       const newSubcategories = prev.includes(subcategory)
         ? prev.filter((s) => s !== subcategory)
         : [...prev, subcategory];
-
       return newSubcategories;
     });
   };
 
-  const handleSearchChange = (e) => {
-    const { value } = e.target;
-    setSearchTerm(value);
-
-    clearTimeout(debounceTimeout.current);
-    debounceTimeout.current = setTimeout(() => {
-      onFilterChange({
-        categories: selectedCategories,
-        subcategories: selectedSubcategories,
-        searchTerm: value,
-      });
-    }, 500);
+  const resetCategoryFilters = () => {
+    setSelectedCategories([]);
+    onFilterChange({ categories: [] });
+    closeDropdowns();
   };
 
-  const resetFilters = () => {
-    setSelectedCategories([]);
+  const resetSubcategoryFilters = () => {
     setSelectedSubcategories([]);
-    setSearchTerm("");
+    onFilterChange({ subcategories: [] });
+    closeDropdowns();
   };
 
   const applyFilters = () => {
-    closeDropdowns();
     onFilterChange({
       categories: selectedCategories,
       subcategories: selectedSubcategories,
-      searchTerm: searchTerm,
     });
+    closeDropdowns();
   };
 
   useEffect(() => {
@@ -104,9 +94,7 @@ const ProductFilter = ({ categories, onFilterChange }) => {
         {/* Category Dropdown */}
         <div className="dropdown-wrapper" ref={categoryDropdownRef}>
           <div className="dropdown-header" onClick={toggleCategoryDropdown}>
-            {selectedCategories.length > 0
-              ? selectedCategories.join(", ")
-              : "All Categories"}
+            Categories
           </div>
           {categoryDropdownOpen && (
             <div className="dropdown-list">
@@ -124,11 +112,11 @@ const ProductFilter = ({ categories, onFilterChange }) => {
                 ))}
               </div>
               <div className="dropdown-actions">
-                <button className="dropdown-reset" onClick={resetFilters}>
+                <button className="dropdown-reset" onClick={resetCategoryFilters}>
                   Reset
                 </button>
                 <button className="dropdown-apply" onClick={applyFilters}>
-                  Show Products
+                  Apply
                 </button>
               </div>
             </div>
@@ -138,9 +126,7 @@ const ProductFilter = ({ categories, onFilterChange }) => {
         {/* Subcategory Dropdown */}
         <div className="dropdown-wrapper" ref={subcategoryDropdownRef}>
           <div className="dropdown-header" onClick={toggleSubcategoryDropdown}>
-            {selectedSubcategories.length > 0
-              ? selectedSubcategories.join(", ")
-              : "All Subcategories"}
+            Subcategories
           </div>
           {subcategoryDropdownOpen && (
             <div className="dropdown-list">
@@ -158,27 +144,15 @@ const ProductFilter = ({ categories, onFilterChange }) => {
                 ))}
               </div>
               <div className="dropdown-actions">
-                <button className="dropdown-reset" onClick={resetFilters}>
+                <button className="dropdown-reset" onClick={resetSubcategoryFilters}>
                   Reset
                 </button>
                 <button className="dropdown-apply" onClick={applyFilters}>
-                  Show Products
+                  Apply
                 </button>
               </div>
             </div>
           )}
-        </div>
-
-        {/* Search Bar with Icon */}
-        <div className="search-wrapper">
-          <FaSearch className="search-icon" />
-          <input
-            type="text"
-            name="searchTerm"
-            placeholder="Search products..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
         </div>
       </div>
     </div>

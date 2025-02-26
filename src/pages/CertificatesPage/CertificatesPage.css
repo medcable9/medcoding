@@ -1,5 +1,5 @@
 .certificates-container {
-  padding: 0 20px 100px 20px;
+  padding: 100px 20px 20px 20px;
   background-color: #F0EFEE;
 }
 
@@ -119,16 +119,38 @@
   .certificates-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+  .certificates-container h2 {
+    font-size: 2.2rem;
+  }
+  .action-btn.download {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
   .certificates-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .certificates-container h2 {
+    font-size: 2.2rem;
+  }
+  .action-btn.download {
+    display: none;
+  }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .certificates-container {
+    padding: 130px 20px 20px 20px;
+    background-color: #F0EFEE;
+  }
   .certificates-grid {
     grid-template-columns: 1fr;
+  }
+  .certificates-container h2 {
+    font-size: 2.2rem;
+  }
+  .action-btn.download {
+    display: none;
   }
 }

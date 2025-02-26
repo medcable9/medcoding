@@ -2,7 +2,11 @@ import { FaTiktok, FaFacebook, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export const company_info = [
     {
-      email: "medcables@hotmail.com",
+      email: {
+        email1: "medcables@hotmail.com",
+        email2: "Info@med-cables.com"
+      },
+      whatsapp_number: "+9617420830",
       phone: {
         phone1: "+9617420830",
         phone2: "+9617420850",

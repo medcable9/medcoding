@@ -17,8 +17,8 @@ import albonyan from "../assets/clients/albonyan.jfif";
 
 
 export const agents = [
-    { name: "Kawtharani Electric Co", image: Agent1 },
-    { name: "Kawtharani General Trading", image: Agent2 },
+    { id: 1, name: "Kawtharani Electric Co", image: Agent1 },
+    { id: 2, name: "Kawtharani General Trading", image: Agent2 },
   ];
   
 // export const agents_cities = ["Beqaa", "Beirut", "South Lebanon", "North Lebanon"];

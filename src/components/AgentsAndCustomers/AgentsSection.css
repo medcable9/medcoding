@@ -51,21 +51,39 @@
   .agents-section {
     flex-direction: column;
     text-align: center;
+    align-items: center; /* Center content vertically */
   }
 
   .agents-content {
     text-align: center;
+    padding: 1rem;
+    margin-left: 0; /* Remove left margin */
   }
 
   .agents-container {
     justify-content: center;
     flex-wrap: wrap;
+    margin-left: 0; /* Remove left margin */
   }
 
   .agents-content h2 {
     margin-top: 20px;
+    font-size: 2.2rem;
   }
+}
+
+@media (max-width: 768px) {
   .agents-container {
-    margin-left: 0;
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center; /* Center cards horizontally */
+  }
+
+  .agents-card {
+    width: 80%; /* Make cards take up most of the width */
+    max-width: 300px; /* But not too wide */
+  }
+  .agents-content h2 {
+    margin-top: 20px;
+    font-size: 2.2rem;
   }
 }

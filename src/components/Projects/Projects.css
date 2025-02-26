@@ -1,7 +1,7 @@
 .projects-section {
-  padding: 0 20px 100px 20px;
-    background: #F0EFEE;
-    text-align: center;
+  padding: 100px 20px 20px 20px;
+  background: #F0EFEE;
+  text-align: center;
   }
 
   .projects-section h2 {
@@ -73,11 +73,20 @@
     .projects-grid {
       grid-template-columns: repeat(2, 1fr);
     }
+    .projects-section h2 {
+      font-size: 2.2rem;
+    }
   }
   
   @media (max-width: 768px) {
+    .projects-section {
+      padding: 120px 20px 20px 20px;
+      }
     .projects-grid {
       grid-template-columns: 1fr;
+    }
+    .projects-section h2 {
+      font-size: 2.2rem;
     }
   }
   

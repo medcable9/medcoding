@@ -10,22 +10,27 @@ const ProductCard = ({ product, onClick }) => (
   </div>
 );
 
-const SeeMoreButton = ({ shownCount, totalCount, onClick }) => (
+const ToggleViewButton = ({ shownCount, totalCount, onClick, isShowingAll }) => (
   <div className="see-more-container">
     <p className="product-count">
       Showing {shownCount} of {totalCount} products
     </p>
-    <button className="see-morre-button" onClick={onClick}>
-      See More
+    <button className="toggle-view-button" onClick={onClick}>
+      {isShowingAll ? "See Less" : "See More"}
     </button>
   </div>
 );
 
 const ProductGrid = ({ products, onProductClick }) => {
-  const [visibleProducts, setVisibleProducts] = useState(8); // Initial number of visible products
+  const initialVisibleCount = 8;
+  const [visibleProducts, setVisibleProducts] = useState(initialVisibleCount);
 
-  const showMoreProducts = () => {
-    setVisibleProducts(prevCount => Math.min(prevCount + 8, products.length));
+  const toggleProductView = () => {
+    if (visibleProducts === products.length) {
+      setVisibleProducts(initialVisibleCount);
+    } else {
+      setVisibleProducts(products.length);
+    }
   };
 
   return (
@@ -35,11 +40,12 @@ const ProductGrid = ({ products, onProductClick }) => {
           <ProductCard key={i} product={product} onClick={onProductClick} />
         ))}
       </div>
-      {visibleProducts < products.length && (
-        <SeeMoreButton 
+      {products.length > initialVisibleCount && (
+        <ToggleViewButton 
           shownCount={visibleProducts} 
           totalCount={products.length} 
-          onClick={showMoreProducts}
+          onClick={toggleProductView}
+          isShowingAll={visibleProducts === products.length}
         />
       )}
     </div>

@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiEye, FiDownload } from 'react-icons/fi';
 import './CertificatesPage.css';
 import { certificates } from '../../data/certificates';
 
 const CertificatesPage = () => {
   const [hoveredCert, setHoveredCert] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const openCertificate = (file) => {
     window.open(file, '_blank');
@@ -48,13 +60,15 @@ const CertificatesPage = () => {
                     >
                       <FiEye />
                     </button>
-                    <button 
-                      onClick={() => downloadCertificate(cert.file, cert.title)}
-                      className="action-btn download"
-                      title="Download Certificate"
-                    >
-                      <FiDownload />
-                    </button>
+                    {!isMobile && (
+                      <button 
+                        onClick={() => downloadCertificate(cert.file, cert.title)}
+                        className="action-btn download"
+                        title="Download Certificate"
+                      >
+                        <FiDownload />
+                      </button>
+                    )}
                   </div>
                 </div>
               )}

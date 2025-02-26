@@ -9,10 +9,13 @@
 
 .filter-bar {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   max-width: 900px;
+  gap: 20px;
 }
+
 
 .dropdown-wrapper {
   position: relative;
@@ -26,7 +29,7 @@
   text-align: left;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
   font-size: 16px;
   color: #222;
 }
@@ -125,54 +128,60 @@
   background-color: #333;
 }
 
-.search-wrapper {
-  position: relative;
-  flex: 1;
-  max-width: 300px; /* Limit the maximum width */
-}
-
-.filter-bar input[type="text"] {
-  width: 100%;
-  padding: 12px 20px 12px 40px;
-  border: none;
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.filter-bar input[type="text"]:focus {
-  outline: none;
-  box-shadow: 0 2px 15px rgba(52, 152, 219, 0.3);
-  width: 250px;
-}
-
-.search-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #888;
-  pointer-events: none;
-}
-
-@media (min-width: 767px) {
+/* @media (min-width: 768px) {
   .filter-bar {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 15px;
+    gap: 20px;
   }
 
   .dropdown-wrapper {
     flex: 0 0 auto;
   }
+} */
 
-  .search-wrapper {
-    flex: 0; /* Prevent the search box from expanding */
-    min-width: 200px; /* Set a minimum width */
-    max-width: 200px; /* Limit the maximum width */
+@media (max-width: 767px) {
+  .filter-bar {
+    /* Keep horizontal layout */
+    flex-direction: row;
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    justify-content: center;
+    gap: 10px; /* Adjust spacing between filters */
+  }
+
+  .dropdown-wrapper {
+    /* Adjust width to fit multiple filters in a row */
+    width: auto;
+    flex: 0 1 auto;
+  }
+
+  .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 280px; /* Fixed width for consistency */
+    max-height: 300px; /* Limit height */
+    overflow-y: auto; /* Enable scrolling */
+    z-index: 1000; /* Ensure it's above other elements */
+  }
+
+  .dropdown-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .dropdown-item {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Ensure dropdown doesn't go off-screen on the right */
+  .dropdown-wrapper:last-child .dropdown-list {
+    left: auto;
+    right: 0;
   }
 }

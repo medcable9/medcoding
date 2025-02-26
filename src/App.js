@@ -8,25 +8,26 @@ import About from './pages/AboutPage/About';
 import Products from './pages/ProductsPage/ProductsPage';
 import Projects from './pages/ProjectsPage/ProjectsPage';
 import Certificates from './pages/CertificatesPage/CertificatesPage';
-import Contact from './pages/ContactPage/ContactUs';
-import WhatsAppFloatingIcon from './components/WhatsappFloatingIcon/WhatsAppFloatingIcon';
+import EmailFloatingIcon from './components/EmailFloatingIcon/EmailFloatingIcon';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function App() {
+
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header/>
+        <div>
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/certificates" element={<Certificates />} />
-          <Route path="/contact" element={<Contact />} />
         </Routes>
-        <WhatsAppFloatingIcon />
+        </div>
+        <EmailFloatingIcon />
         <Footer />
       </div>
     </Router>

@@ -1,7 +1,6 @@
 .company-info {
-  /* background-color: #DFDDDB; */
   background-color: #F0EFEE;
-  padding: 20px 0;
+  padding: 100px 20px 20px 20px;
 }
 
 .info-container {
@@ -22,13 +21,13 @@
 }
 
 .info-image {
+  padding-top: 30px;
   flex: 1;
 }
 
 .info-image img {
   width: 100%;
   height: auto;
-  border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -44,7 +43,7 @@
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 10px;
-  text-align: left;
+  text-align: justify;
 }
 
 .info-grid {
@@ -115,6 +114,10 @@
 }
 
 @media (max-width: 768px) {
+  .company-info {
+    padding: 130px 20px 20px 20px;
+  }
+
   .info-content {
     flex-direction: column;
   }
@@ -126,5 +129,19 @@
 
   .info-grid {
     grid-template-columns: 1fr;
+  }
+
+  .company-info h2 {
+    font-size: 2.2rem;
+  }
+  .company-info p {
+    font-size: 1rem;
+  }
+  .info-item {
+    font-size: 1.4;
+  }
+  
+  .info-item p {
+    font-size: 1rem;
   }
 }

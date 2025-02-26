@@ -1,3 +1,4 @@
+// CommonServices.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import './CommonServices.css';
@@ -10,15 +11,10 @@ const ServiceCard = ({ icon, title, description }) => (
     transition={{ type: "spring", stiffness: 300 }}
   >
     {icon}
-    <div className="service-title">
-      <h3>{title}</h3>
-    </div>
-    <div className="service-description">
-      <p>{description}</p>
-    </div>
+    <h3 className="service-title">{title}</h3>
+    <p className="service-description">{description}</p>
   </motion.div>
 );
-
 
 const CommonServices = () => {
   return (
