@@ -96,7 +96,7 @@
   margin-bottom: 10px;
   padding: 10px;
   background: rgba(15, 49, 109, 0.05);
-  border-radius: 5px;
+  border-radius: 1px;
   transition: all 0.3s ease;
 }
 
@@ -109,6 +109,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 0;
 }
 
 .footer-contact-detail {
@@ -116,13 +117,17 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 5px;
-  padding-bottom: 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  /* padding-bottom: 20px; */
+  border-radius: 1px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background: rgba(15, 49, 109, 0.05);
+  transition: all 0.3s ease;
 }
 
 .footer-contact-detail:hover {
-  background: rgba(15, 49, 109, 0.05);
+  background: rgba(0, 123, 255, 0.1);
+  transform: translateX(5px);
 }
 
 .footer-contact-detail svg {
