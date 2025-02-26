@@ -7,10 +7,10 @@ const EmailFloatingIcon = () => {
   const [showModal, setShowModal] = useState(false);
   const { email } = company_info[0];
   const subject = 'Request for Quote';
-  const body = 'Hello! I would like to get a quote.';
+  const body = 'Hello!';
 
   const openEmailClient = () => {
-    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:${email.email1}?cc=${email.email2}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     // Try to open the email client
     window.location.href = mailtoLink;
