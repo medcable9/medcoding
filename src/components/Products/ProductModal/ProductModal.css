@@ -198,7 +198,7 @@
   .modal-content {
     width: 95%;
     height: 95vh;
-    overflow-y: auto; /* Add this to enable scrolling */
+    /* overflow-y: auto; */
   }
 
   .modal-body {
@@ -226,7 +226,7 @@
   }
 
   .main-image {
-    height: 250px;
+    height: 120px;
     margin-bottom: 15px;
   }
 
@@ -236,7 +236,8 @@
 
   .modal-info-section {
     padding-left: 0;
-    padding-top: 20px;
+    padding-top: 10px;
+    margin-bottom: 0;
   }
 
   .modal-info-section h3 {
@@ -245,7 +246,7 @@
   }
 
   .overview-content {
-    display: block;
+    display: fixed;
     margin-bottom: 15px;
   }
 
@@ -261,12 +262,13 @@
 
   .horizontal-menu {
     flex-wrap: wrap;
+    margin-top: 0;
   }
 
   .menu-tab {
     flex-basis: 50%;
     font-size: 12px;
-    padding: 10px;
+    /* padding: 10px; */
   }
 
   .tab-content {
