@@ -193,21 +193,70 @@
 .tab-pane {
   display: block;
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    height: 95vh;
+    overflow-y: auto; /* Add this to enable scrolling */
+  }
+
   .modal-body {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .image-section {
+    flex-basis: auto;
+    max-height: none;
+    display: flex;
     flex-direction: column;
   }
 
-  .image-section,
-  .modal-info-section {
-    flex-basis: auto;
+  .thumbnail-images {
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .thumbnail-images img {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+  }
+
+  .main-image {
+    height: 250px;
+    margin-bottom: 15px;
+  }
+
+  .main-image img {
+    object-fit: cover;
   }
 
   .modal-info-section {
     padding-left: 0;
     padding-top: 20px;
+  }
+
+  .modal-info-section h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .overview-content {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  /* .document-links {
+    flex-direction: column;
+    gap: 10px;
+  } */
+
+  .document-links a {
+    width: 100%;
+    text-align: center;
   }
 
   .horizontal-menu {
@@ -216,5 +265,12 @@
 
   .menu-tab {
     flex-basis: 50%;
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .tab-content {
+    height: auto; /* Allow dynamic height */
+    padding: 15px;
   }
 }

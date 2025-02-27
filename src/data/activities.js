@@ -30,7 +30,7 @@ export const activities = [
         image: [activity4, activity4_1],
         date: "August 04, 2019",
         title: "Interactive Ceremony",
-        description: "MedCables honored the Minister of Industry, Dr. Hussein Hajj Hassan, in a ceremony held at the Malaak Tourist Complex in Ansariyah. The ceremony was attended by the Minister of Industry, Dr. Hussein Hajj Hassan, the President of the Association of Industrialists, Dr. Fadi Jameel, the President of the Chamber of Commerce and Industry in the South, Mr. Mohammed Saleh, the President of the Union of Municipalities of Sahel Al-Zahrani, Mr. Ali Matar, the Mayor of Sarafand, Engineer Ali Haider Khalifa, and the owners of industrial companies and institutions. The speakers included Mr. Samer Zbeib, and the ceremony began with the Lebanese national anthem. Then, a speech was given by the CEO of MedCables, Mr. Ahmad Kothrani, followed by a speech by the President of the Association of Industrialists, Dr. Fadi Jameel. Finally, a speech was given by the Minister of Industry, Dr. Hussein Hajj Hassan, and at the end of the ceremony, a shield was presented to the Minister in honor of his visit."
+        description: "MedCables honored the Minister of Industry, Dr. Hussein Hajj Hassan, in a ceremony at the Malaak Tourist Complex in Ansariyah. The event was attended by prominent industrial and municipal figures. Speeches were delivered by Mr. Samer Zbeib, MedCables CEO Ahmad Kothrani, Dr. Fadi Jameel, and Minister Hussein Hajj Hassan. The ceremony concluded with the presentation of an honorary shield to the Minister."
     },
     {
       image: [activity5],
