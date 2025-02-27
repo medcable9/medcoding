@@ -29,6 +29,7 @@ const Header = () => {
         const searchParams = new URLSearchParams(location.search);
         const searchTerm = searchParams.get("search") || "";
         setSearchQuery(searchTerm);
+        setMobileSearchQuery(searchTerm); // Initialize mobile search query as well
     }, [location]);
 
     useEffect(() => {
@@ -47,6 +48,7 @@ const Header = () => {
 
     const clearSearch = () => {
         setSearchQuery('');
+        setMobileSearchQuery(''); // Also clear the mobile search query
         setSearchSuggestions([]);
         if (location.pathname === '/products') {
             navigate('/products');
@@ -54,6 +56,7 @@ const Header = () => {
     };
     const clearMobileSearch = () => {
         setMobileSearchQuery('');
+        setSearchQuery('');
         setSearchSuggestions([]);
         if (location.pathname === '/products') {
             navigate('/products');
@@ -71,16 +74,7 @@ const Header = () => {
     const handleSearchChange = (e) => {
         const value = e.target.value;
         setSearchQuery(value);
-        
-        if (value.length > 0) {
-            const suggestions = productCategories
-                .flatMap(cat => cat.subcategories.flatMap(subcat => subcat.products))
-                .filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
-                .slice(0, 5); // Limit to 5 suggestions
-            setSearchSuggestions(suggestions);
-        } else {
-            setSearchSuggestions([]);
-        }
+        updateSearchSuggestions(value);
 
         // Navigate to products page with search query
         if (location.pathname !== '/products') {
@@ -99,6 +93,7 @@ const Header = () => {
 
     const handleSuggestionClick = (productName) => {
         setSearchQuery(productName);
+        setMobileSearchQuery(productName);
         setSearchSuggestions([]);
         navigate(`/products?search=${encodeURIComponent(productName)}`);
     };
@@ -106,7 +101,33 @@ const Header = () => {
     const handleMobileSearchChange = (e) => {
         const value = e.target.value;
         setMobileSearchQuery(value);
-        handleSearchChange(e);
+        updateSearchSuggestions(value);
+
+        // Navigate to products page with search query
+        if (location.pathname !== '/products') {
+            navigate(`/products?search=${encodeURIComponent(value)}`);
+        } else {
+            // If already on products page, update URL
+            const searchParams = new URLSearchParams(location.search);
+            if (value) {
+                searchParams.set("search", value);
+            } else {
+                searchParams.delete("search");
+            }
+            navigate(`${location.pathname}?${searchParams.toString()}`, { replace: true });
+        }
+    };
+
+    const updateSearchSuggestions = (value) => {
+        if (value.length > 0) {
+            const suggestions = productCategories
+                .flatMap(cat => cat.subcategories.flatMap(subcat => subcat.products))
+                .filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
+                .slice(0, 5); // Limit to 5 suggestions
+            setSearchSuggestions(suggestions);
+        } else {
+            setSearchSuggestions([]);
+        }
     };
 
     const navLinks = [
@@ -128,7 +149,6 @@ const Header = () => {
                 <motion.div className="logo" whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 300 }}>
                     <Link to="/"><img src={logo} alt="Company Logo" /></Link>
                 </motion.div>
-
                 <nav className="desktop-nav">
                     {navLinks.map((link) => (
                         <motion.div key={link.path} whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 300 }}>
@@ -232,3 +252,4 @@ const Header = () => {
 };
 
 export default Header;
+

@@ -25,11 +25,13 @@
   background: #ffffff;
   width: 90%;
   max-width: 1000px;
-  max-height: 90vh;
-  overflow-y: auto;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   position: relative;
+  overflow: hidden;
 }
 
 /* Close Button */
@@ -43,22 +45,26 @@
   cursor: pointer;
   color: #333;
   transition: color 0.3s ease;
+  z-index: 2;
 }
 
 .close-btn:hover {
-  color: #ff6b6b;
+  color: #D1A952;
 }
 
 /* Modal Body */
 .modal-body {
   display: flex;
   padding: 30px;
+  flex: 1;
+  overflow-y: auto;
 }
 
 /* Image Section */
 .image-section {
   display: flex;
   flex-basis: 60%;
+  max-height: 400px;
 }
 
 .thumbnail-images {
@@ -87,11 +93,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .main-image img {
   max-width: 100%;
-  max-height: 400px;
+  max-height: 100%;
   object-fit: contain;
 }
 
@@ -101,7 +108,7 @@
   padding-left: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  overflow-y: auto;
 }
 
 .modal-info-section h3 {
@@ -109,18 +116,18 @@
   font-size: 28px;
   margin-bottom: 30px;
   text-align: left;
-  width: 100%;
 }
 
 .overview-content {
-  width: 100%;
+  flex: 1;
+  overflow-y: auto;
 }
 
 .overview-content p {
   margin: 10px 0;
   font-size: 14px;
   color: #555;
-  text-align: justify;
+  text-align: left;
 }
 
 /* Document Links */
@@ -128,8 +135,6 @@
   display: flex;
   gap: 15px;
   margin-top: 30px;
-  justify-content: left;
-  width: 100%;
 }
 
 .document-links a {
@@ -147,7 +152,6 @@
   background-color: white;
   color: #001f5f;
   border-color: #001f5f;
-  border-width: 2px;
 }
 
 /* Horizontal Menu */
@@ -155,7 +159,6 @@
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #e0e0e0;
-  margin-top: 20px;
 }
 
 .menu-tab {
@@ -183,8 +186,8 @@
 .tab-content {
   padding: 20px;
   background: #f8f9fa;
-  min-height: 100px;
-  text-align: justify;
+  height: 150px;
+  overflow-y: auto;
 }
 
 .tab-pane {
@@ -198,11 +201,11 @@
   }
 
   .image-section,
-  .info-section {
-    flex-basis: 100%;
+  .modal-info-section {
+    flex-basis: auto;
   }
 
-  .info-section {
+  .modal-info-section {
     padding-left: 0;
     padding-top: 20px;
   }

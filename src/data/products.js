@@ -1,9 +1,10 @@
 import img1 from "../assets/images/cable.png";
+import img2 from "../assets/images/power-cables.png"
 
 export const productCategories = [
   {
     name: "Power Cables",
-    image: img1,
+    image: img2,
     description: "Power Cables Description",
     subcategories: [
       {
@@ -11,7 +12,7 @@ export const productCategories = [
         products: [
           {
             name: "HV Cable 1",
-            images: [img1, img1],
+            images: [img2, img1],
             construction: "Copper core, XLPE insulation",
             application: "Power transmission",
             technicalCharacteristics: "Resistance to high temperatures",

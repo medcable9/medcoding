@@ -123,7 +123,7 @@ const Footer = () => {
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
-        <p>&copy; {currentYear} Your Company Name. All Rights Reserved.</p>
+        <p>&copy; {currentYear} Mediterranean Cables. All Rights Reserved.</p>
         <div className="footer-policies">
           <Link to="/">Privacy Policy</Link>
           <Link to="/">Terms of Service</Link>

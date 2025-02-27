@@ -22,6 +22,8 @@
   position: relative;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
+  display: flex; /* Added */
+  flex-direction: column; /* Added */
 }
 
 .product-card:hover {
@@ -31,23 +33,22 @@
 
 .product-card img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-height: 220px; /* Maintain uniform size */
+  height: 220px; /* Fixed height for images */
+  object-fit: contain; /* Crucial for maintaining aspect ratio */
   display: block;
   margin: 0 auto;
 }
 
-.product-info {
-  margin-top: 30px;
-  /* background-color: #F0EFEE; */
-}
+/* .product-info {
+  margin-top: auto 
+} */
 
 .product-name {
   font-size: 1.5rem;
   font-weight: bold;
   color: #1E3456;
-  margin-bottom: 5px;
+  margin-bottom: 1px;
+  min-height: 3em;
 }
 
 .see-more-container {
