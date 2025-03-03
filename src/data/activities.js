@@ -6,6 +6,8 @@ import activity4 from '../assets/activities/activity4.jpg';
 import activity4_1 from '../assets/activities/activity4_1.jpg';
 import activity5 from '../assets/activities/activity5.jpg';
 import activity6 from '../assets/activities/activity6.jpg';
+import activity7 from '../assets/activities/activity7.jpg';
+import activity7_1 from '../assets/activities/activity7_1.jpg';
 
 export const activities = [
     {
@@ -43,5 +45,11 @@ export const activities = [
       date: "August 04, 2019",
       title: "Meeting",
       description: "A meeting was held in the presence of the MedCables's director, the Algerian ambassador, and the Tunisian ambassador."
+    },
+    {
+      image: [activity7, activity7_1],
+      date: "June 24, 2023",
+      title: "Minister of Labor Visits Our Factory",
+      description: "Minister of Labor Mustafa Bayram and his delegation visited MedCables to tour its factory, reflecting his strong support for the industrial sector and local businesses. MedCables is recognized as a model company in its field, creating sustainable job opportunities for youth and contributing to economic development. The visit highlights the importance of collaboration between the Ministry of Labor and the private sector to drive progress."
     },
   ];

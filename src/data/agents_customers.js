@@ -74,19 +74,24 @@ export const customers = {
     }
   };
 
-export const globalExportCountries = [
-  { name: "Lebanon", lat: 33.8736, lng: 35.8637 },
-  { name: "Iraq", lat: 33.223191, lng: 43.679291},
-  { name: "Kuwait", lat: 29.18, lng: 47.29 },
-  { name: "Saudi Arabia", lat: 23.885942, lng: 45.079162 },
-  { name: "UAE", lat: 23.4241, lng: 53.8478 },
-  { name: "Sudan", lat: 15.508457, lng: 32.522854 },
-  { name: "Angola", lat: -11.2135, lng: 17.8770 },
-  { name: "DRC", lat: -4.0383, lng: 21.7587 },
-  { name: "Congo", lat: -0.2280, lng: 15.8277 },
-  { name: "Nigeria", lat: 9.0778, lng:  8.6775 },
-  { name: "Ghana", lat: 7.9465, lng:  -1.0232 },
-  { name: "Abidjan", lat: 5.3453, lng:  -4.0244 },
-  { name: "Sierra Leone", lat: 8.4606, lng:  -11.7799 },
-  { name: "Liberia", lat: 6.4281, lng:  -9.4295 },
+  export const globalExportCountries = [
+    { name: "Lebanon", lat: 33.8736, lng: 35.8637 },
+    { name: "Iraq", lat: 33.223191, lng: 43.679291 },
+    { name: "Kuwait", lat: 29.18, lng: 47.29 },
+    { name: "Saudi Arabia", lat: 23.885942, lng: 45.079162 },
+    { name: "UAE", lat: 23.4241, lng: 53.8478 },
+    { name: "Sudan", lat: 15.508457, lng: 32.522854 },
+    { name: "Angola", lat: -11.2135, lng: 17.8770 },
+    { name: "DRC", lat: -4.0383, lng: 21.7587 },
+    { name: "Congo", lat: -0.2280, lng: 15.8277 },
+    { name: "Nigeria", lat: 9.0778, lng: 8.6775 },
+    { name: "Ghana", lat: 7.9465, lng: -1.0232 },
+    { name: "Abidjan", lat: 5.3453, lng: -4.0244 },
+    { name: "Sierra Leone", lat: 8.4606, lng: -11.7799 },
+    { name: "Liberia", lat: 6.4281, lng: -9.4295 },
+    { name: "Togo", lat: 8.6195, lng: 0.8248 },
+    { name: "Egypt", lat: 26.8206, lng: 30.8025 },
+    { name: "Gabon", lat: -0.8037, lng: 11.6094 },
+    { name: "Jordan", lat: 30.5852, lng: 36.2384 },
   ];
+  
