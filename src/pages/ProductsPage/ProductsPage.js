@@ -3,12 +3,10 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { productCategories } from "../../data/products";
 import ProductFilter from "../../components/Products/ProductFilter/ProductFilter";
 import ProductGrid from "../../components/Products/ProductGrid/ProductGrid";
-import ProductModal from "../../components/Products/ProductModal/ProductModal";
 import "./ProductsPage.css";
 
 const ProductsPage = () => {
-    const [selectedProduct, setSelectedProduct] = useState(null);
-    const [filters, setFilters] = useState({ categories: [], subcategories: [], searchTerm: "" });
+    const [filters, setFilters] = useState({ categories: [], searchTerm: "" });
     const [filteredProducts, setFilteredProducts] = useState([]);
     const location = useLocation();
     const navigate = useNavigate();
@@ -22,11 +20,7 @@ const ProductsPage = () => {
     useEffect(() => {
         const filtered = productCategories
             .filter(cat => filters.categories.length === 0 || filters.categories.includes(cat.name))
-            .flatMap(cat => 
-                cat.subcategories
-                    .filter(subcat => filters.subcategories.length === 0 || filters.subcategories.includes(subcat.name))
-                    .flatMap(subcat => subcat.products)
-            )
+            .flatMap(cat => cat.products)
             .filter(product => 
                 product.name.toLowerCase().includes(filters.searchTerm.toLowerCase())
             );
@@ -40,7 +34,6 @@ const ProductsPage = () => {
             ...newFilters
         }));
         
-        // Update URL with new search term if it's changed
         if (newFilters.searchTerm !== undefined && newFilters.searchTerm !== filters.searchTerm) {
             const searchParams = new URLSearchParams(location.search);
             if (newFilters.searchTerm) {
@@ -53,29 +46,26 @@ const ProductsPage = () => {
     };
 
     const resetAllFilters = () => {
-        setFilters({ categories: [], subcategories: [], searchTerm: "" });
-        navigate(location.pathname); // Remove search params from URL
+        setFilters({ categories: [], searchTerm: "" });
+        navigate(location.pathname);
     };
 
     return (
         <div className="products-page">
             <h2>Products</h2>
-            <ProductFilter 
-                categories={productCategories} 
-                onFilterChange={handleFilterChange}
-                onReset={resetAllFilters}
-                currentFilters={filters}
-            />
-            <ProductGrid 
-                products={filteredProducts} 
-                onProductClick={setSelectedProduct}
-            />
-            {selectedProduct && (
-                <ProductModal 
-                    product={selectedProduct} 
-                    onClose={() => setSelectedProduct(null)}
-                />
-            )}
+            <div className="products-content">
+                <div className="filter-sidebar">
+                    <ProductFilter 
+                        categories={productCategories} 
+                        onFilterChange={handleFilterChange}
+                        onReset={resetAllFilters}
+                        currentFilters={filters}
+                    />
+                </div>
+                <div className="product-grid-area">
+                    <ProductGrid products={filteredProducts} />
+                </div>
+            </div>
         </div>
     );
 };

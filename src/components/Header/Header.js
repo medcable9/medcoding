@@ -121,7 +121,7 @@ const Header = () => {
     const updateSearchSuggestions = (value) => {
         if (value.length > 0) {
             const suggestions = productCategories
-                .flatMap(cat => cat.subcategories.flatMap(subcat => subcat.products))
+                .flatMap(cat => cat.products)
                 .filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
                 .slice(0, 5); // Limit to 5 suggestions
             setSearchSuggestions(suggestions);
@@ -252,4 +252,3 @@ const Header = () => {
 };
 
 export default Header;
-

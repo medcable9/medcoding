@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProductGrid.css';
 
-const ProductCard = ({ product, onClick }) => (
-  <div className="product-card" onClick={() => onClick(product)}>
-    <img src={product.images[0]} alt={product.name} />
-    <div className="product-info">
-      <h3 className="product-name">{product.name}</h3>
+const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/products/${encodeURIComponent(product.name)}`);
+  };
+
+  return (
+    <div className="product-card" onClick={handleClick}>
+      <img src={product.main_img} alt={product.name} />
+      <div className="divider"></div>
+      <div className="product-info">
+        <h3>{product.name}</h3>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const ToggleViewButton = ({ shownCount, totalCount, onClick, isShowingAll }) => (
   <div className="see-more-container">
@@ -21,31 +31,41 @@ const ToggleViewButton = ({ shownCount, totalCount, onClick, isShowingAll }) => 
   </div>
 );
 
-const ProductGrid = ({ products, onProductClick }) => {
+const ProductGrid = ({ products }) => {
   const initialVisibleCount = 8;
   const [visibleProducts, setVisibleProducts] = useState(initialVisibleCount);
 
+  const productsToShow = 8;
+
   const toggleProductView = () => {
-    if (visibleProducts === products.length) {
+    if (visibleProducts >= products.length) {
       setVisibleProducts(initialVisibleCount);
     } else {
-      setVisibleProducts(products.length);
+      setVisibleProducts(prevVisibleProducts =>
+        Math.min(prevVisibleProducts + productsToShow, products.length)
+      );
     }
   };
+
+  const seeLessProducts = () => {
+    setVisibleProducts(initialVisibleCount);
+  };
+
+  const isShowingAll = visibleProducts >= products.length;
 
   return (
     <div className="product-grid-container">
       <div className="product-grid">
         {products.slice(0, visibleProducts).map((product, i) => (
-          <ProductCard key={i} product={product} onClick={onProductClick} />
+          <ProductCard key={i} product={product} />
         ))}
       </div>
       {products.length > initialVisibleCount && (
-        <ToggleViewButton 
-          shownCount={visibleProducts} 
-          totalCount={products.length} 
-          onClick={toggleProductView}
-          isShowingAll={visibleProducts === products.length}
+        <ToggleViewButton
+          shownCount={visibleProducts}
+          totalCount={products.length}
+          onClick={isShowingAll ? seeLessProducts : toggleProductView}
+          isShowingAll={isShowingAll}
         />
       )}
     </div>
