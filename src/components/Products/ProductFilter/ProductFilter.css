@@ -78,6 +78,9 @@
 }
 
 @media (max-width: 768px) {
+  .filter-title {
+    margin-bottom: 20px;
+  }
   .filter-container {
     height: auto;
     position: static;
