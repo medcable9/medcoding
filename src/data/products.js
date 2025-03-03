@@ -5,7 +5,7 @@ export const productCategories = [
   {
     name: "Power Cables",
     image: nya,
-    description: "Power Cables Description",
+    description: "",
     products: [
       {
         name: "NYA",
