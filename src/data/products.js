@@ -1,5 +1,8 @@
 import nya from "../assets/cables/nya.png";
+import nya_cat from "../assets/cables/catalogs/NYA Cable.pdf";
+
 import nyaf from "../assets/cables/nyaf.png";
+import nyaf_cat from "../assets/cables/catalogs/NYAF Cable.pdf";
 
 export const productCategories = [
   {
@@ -85,8 +88,7 @@ export const productCategories = [
             <li>Drum: > 50 mm²</li>
           </ul>
         `,
-        datasheetPdf: "datasheet.pdf",
-        catalogPdf: "catalog.pdf",
+        catalogPdf: nya_cat,
       },
       {
         name: "NYAF",
@@ -162,8 +164,7 @@ export const productCategories = [
             <li>Drum: > 35 mm²</li>
           </ul>
         `,
-        datasheetPdf: "datasheet.pdf",
-        catalogPdf: "catalog.pdf",
+        catalogPdf: nyaf_cat,
       }
     ]
   }

@@ -68,7 +68,14 @@ const ProductDetailPage = () => {
                     <div className="product-description product-description-section">
                         <h3>Application</h3>
                         <p>{product.application}</p>
-                        <button className="catalog-btn">View Catalog</button>
+                        <a 
+                            href={product.catalogPdf} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="catalog-btn"
+                        >
+                            View Catalog
+                        </a>
                     </div>
 
                     <div className="details-section">
