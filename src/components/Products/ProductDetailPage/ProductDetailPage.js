@@ -24,8 +24,8 @@ const ProductDetailPage = () => {
         .find(p => p.name === productId);
 
     useEffect(() => {
-        if (product && product.images.length > 0) {
-            setCurrentImage(product.images[0]);
+        if (product && product.images_dict && Object.keys(product.images_dict).length > 0) {
+            setCurrentImage(Object.keys(product.images_dict)[0]); // Set first image URL as default
         }
     }, [product]);
 
@@ -51,31 +51,57 @@ const ProductDetailPage = () => {
             <div className="product-container">
                 <div className="product-images">
                     <img src={currentImage} alt={product.name} className="main-image" />
+                    
                     <div className="thumbnail-images">
-                        {product.images.map((image, index) => (
-                            <img 
-                                key={index} 
-                                src={image} 
-                                alt={`${product.name} ${index + 1}`} 
-                                className="thumbnail"
-                                onClick={() => handleThumbnailClick(image)}
-                            />
+                        {Object.entries(product.images_dict).map(([image, title], index) => (
+                            <div key={index} className="thumbnail-container">
+                                <img 
+                                    src={image} 
+                                    alt={title} 
+                                    className="thumbnail"
+                                    onClick={() => handleThumbnailClick(image)}
+                                />
+                                <p className="thumbnail-title">{title}</p> 
+                            </div>
                         ))}
                     </div>
                 </div>
+                
                 <div className="product-info">
-                    <h1 className="product-name">{product.name}</h1>
+                    <div className="product-name-container">
+                        <h1 className="product-name">{product.name}</h1>
+                        {product.other_names && <p className="other-names">({product.other_names})</p>}
+                    </div>
+                    
+                    <div className="series_code">
+                        <p>Product Series Code:</p>
+                        <p><strong>{product.seriesCode}</strong></p>
+                    </div>
+                    
                     <div className="product-description product-description-section">
                         <h3>Application</h3>
                         <p>{product.application}</p>
-                        <a 
-                            href={product.catalogPdf} 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
-                            className="catalog-btn"
-                        >
-                            View Catalog
-                        </a>
+                        <div className="catalog-btn-container">
+                            <a 
+                                href={product.catalogPdf} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="catalog-btn"
+                            >
+                                View Technical Datasheet
+                            </a>
+                            <button 
+                                onClick={() => {
+                                    const pdfWindow = window.open(product.catalogPdf, "_blank");
+                                    if (pdfWindow) {
+                                        pdfWindow.onload = () => pdfWindow.print();
+                                    }
+                                }} 
+                                className="catalog-btn"
+                            >
+                                Print PDF
+                            </button>
+                        </div>
                     </div>
 
                     <div className="details-section">
@@ -97,12 +123,14 @@ const ProductDetailPage = () => {
                             expanded={expandedSection === "standards"}
                             toggleSection={() => toggleSection("standards")}
                         />
-                        <DetailSection
-                            title="Core Identification"
-                            content={product.coreIdentification}
-                            expanded={expandedSection === "coreIdentification"}
-                            toggleSection={() => toggleSection("coreIdentification")}
-                        />
+                        {product.coreIdentification && (
+                            <DetailSection
+                                title="Core Identification"
+                                content={product.coreIdentification}
+                                expanded={expandedSection === "coreIdentification"}
+                                toggleSection={() => toggleSection("coreIdentification")}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

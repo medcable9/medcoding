@@ -5,16 +5,24 @@ import './ProductGrid.css';
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
+  // Get the first image from images_dict
+  const mainImage = product.images_dict && Object.keys(product.images_dict).length > 0
+    ? Object.keys(product.images_dict)[0]
+    : ''; // Fallback if images_dict is empty
+
   const handleClick = () => {
     navigate(`/products/${encodeURIComponent(product.name)}`);
   };
 
   return (
     <div className="product-card" onClick={handleClick}>
-      <img src={product.main_img} alt={product.name} />
+      {mainImage && <img src={mainImage} alt={product.name} />} {/* Display image only if available */}
       <div className="divider"></div>
       <div className="product-info">
         <h3>{product.name}</h3>
+        {product.other_names && (
+          <p className="other-names-out">{product.other_names}</p>
+        )}
       </div>
     </div>
   );

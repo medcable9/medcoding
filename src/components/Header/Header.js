@@ -123,7 +123,7 @@ const Header = () => {
             const suggestions = productCategories
                 .flatMap(cat => cat.products)
                 .filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
-                .slice(0, 5); // Limit to 5 suggestions
+                .slice(0, 5);
             setSearchSuggestions(suggestions);
         } else {
             setSearchSuggestions([]);

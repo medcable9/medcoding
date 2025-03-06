@@ -4,6 +4,7 @@
     margin: 100px 0 0 0;
     position: relative;
     background-color: #F0EFEE;
+    padding-top: 20px;
 }
 
 .product-container {
@@ -50,6 +51,21 @@
     border-color: #1E3355;
     transform: scale(1.1);
 }
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.thumbnail-title {
+    font-size: 12px;
+    color: #555;
+    margin-top: 5px;
+    max-width: 100px;
+}
+
+
 
 /* Product Info */
 .product-info {
@@ -57,12 +73,39 @@
     padding: 20px;
 }
 
+.product-name-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing */
+    flex-wrap: wrap;
+}
+
 .product-name {
     font-size: 32px;
     color: #1E3355;
-    margin-bottom: 10px;
+    margin: 0;
+    white-space: nowrap; /* Prevent breaking */
+}
+
+.other-names {
+    font-size: 20px;
+    color: #555;
+    margin: 0;
+    white-space: nowrap;
+}
+
+
+.product-info p{
     text-align: left;
-    min-height: 3em;
+    color: #555;
+    margin-top: 5px;
+}
+
+.series_code {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-align: left;
 }
 
 .product-description {
@@ -74,6 +117,7 @@
     font-size: 16px;
     color: #555;
     line-height: 1.6;
+    text-align: justify;
 }
 
 .product-description-section {
@@ -193,23 +237,39 @@
     content: '-';
 }
 
+
 .catalog-btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 18px;
     margin-top: 20px;
     background-color: #1E3456;
     color: #fff;
     text-decoration: none;
-    transition: background-color 0.3s ease;
     font-size: 14px;
+    font-weight: bold;
     border: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 180px;
 }
 
 .catalog-btn:hover {
     background-color: white;
-    color: #001f5f;
-    border-color: #001f5f;
+    color: #1E3456;
+    border-color: #1E3456;
 }
+.catalog-btn-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.icon-small {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+  }
+  
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -249,5 +309,6 @@
     .catalog-btn {
         width: 100%;
         text-align: center;
+        margin-left: 15px;
     }
 }
