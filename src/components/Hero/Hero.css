@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  border: 3px solid white;
+  border: 3px solid #F0EFEE;
 }
 
 .hero-background{
@@ -24,7 +24,7 @@
   background-position: center;
   filter: blur(8px); 
   /* -webkit-filter: blur(8px); */
-  transition: background-image 1s ease-in-out;
+  transition: 1s ease-in-out;
 }
 
 .hero-main {
