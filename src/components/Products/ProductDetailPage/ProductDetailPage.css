@@ -9,38 +9,33 @@
 
 .product-container {
     display: flex;
+    flex-direction: column; /* Stack items vertically */
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; 
 }
 
-/* Product Images */
 .product-images {
-    flex: 0 0 40%;
-    display: flex;
-    flex-direction: column;
-    /* margin-top: 40px; */
-    align-self: flex-start;
+    margin: 0 30px;
 }
 
 .main-image {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
+    /* width: 30%; */
+    height: 100px;
     object-fit: contain;
-    margin: 40px 0 0 10px;
+    margin-top: 30px;
 }
 
 .thumbnail-images {
     display: flex;
-    gap: 10px;
+    gap: 5px;
     overflow-x: auto;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
 .thumbnail {
-    width: 60px;
-    height: 60px;
-    border-radius: 5px;
+    margin-top: 5px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     border: 2px solid transparent;
     transition: border-color 0.3s ease, transform 0.3s ease;
@@ -65,12 +60,9 @@
     max-width: 100px;
 }
 
-
-
 /* Product Info */
 .product-info {
-    flex: 1 1 50%;
-    padding: 20px;
+    margin: 20px 30px;
 }
 
 .product-name-container {
@@ -203,6 +195,7 @@
 .detail-content h3{
     font-size: 14px;
     color: #555;
+    margin-bottom: 0;
 } 
 
 .detail-content {
@@ -225,7 +218,7 @@
 }
 
 .detail-content ul ul {
-    margin-top: 5px;
+    margin-top: 1px;
 }
 
 .detail-section.expanded .detail-content {
@@ -250,7 +243,7 @@
     border: 2px solid transparent;
     transition: all 0.3s ease;
     text-align: center;
-    min-width: 180px;
+    min-width: 120px;
 }
 
 .catalog-btn:hover {
@@ -273,6 +266,9 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    .thumbnail-title {
+        font-size: 10px;
+    }
     .product-detail-page {
         padding: 30px 10px;
     }
@@ -287,9 +283,10 @@
         flex: 1 1 100%;
     }
 
-    .product-info {
-        width: 100%;
-        padding: 15px;
+    .main-image {
+        width: 70%;
+        object-fit: contain;
+        margin-top: 20px;
     }
 
     .product-name {
@@ -306,7 +303,7 @@
         width: 100%;
         display: flex;
         justify-content: center;
-        gap: 10px;
+        gap: 5px;
         flex-wrap: wrap;
     }
 
@@ -319,7 +316,7 @@
     }
 
     .detail-section {
-        padding: 15px;
+        padding-bottom: 0;
     }
 
     .detail-header {

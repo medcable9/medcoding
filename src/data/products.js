@@ -1,8 +1,9 @@
-import nya from "../assets/cables/nya.jpeg";
-import nya1 from "../assets/cables/nya1.jpeg";
+import nya from "../assets/cables/nya.png";
+import nya1 from "../assets/cables/nya1.png";
+import nya2 from "../assets/cables/nya2.png";
 import nya_cat from "../assets/cables/catalogs/NYA Cable.pdf";
 
-import nyaf from "../assets/cables/nyaf.jpg";
+import nyaf from "../assets/cables/nyaf.png";
 import nyaf_cat from "../assets/cables/catalogs/NYAF Cable.pdf";
 
 import bendingIcon from "../assets/cables/icons/bending.png";
@@ -23,16 +24,16 @@ export const productCategories = [
             name: "NYA",
             main_img: nya,
             images_dict: {
-              [nya]: "H05V-U, H07V-U",
-              [nya1]: "H07V-R"
+              [nya1]: "H05V-U, H07V-U",
+              [nya2]: "H07V-R"
             },  
             other_names:["H05V-U", "H07V-U", "H07V-R"],
-            other_names_string:"H05V-U, H07V-U and H07V-R",
+            other_names_string:"H05V-U, H07V-U/R",
             seriesCode: "1000",
             application: "Appropriate for both power and lighting circuits and for the wiring of buildings. This cable is designed for use in partially visible conduits and fully enclosed installation ducts and is particularly well-suited for the internal wiring of appliances.",
             construction: `
             <ul>
-              <li><h3>Layer 1: Conductor</h3>
+              <li><h3>Conductor:</h3>
                 <ul>
                   <li>Solid copper Class 1 NYAe for H05V-U, H07V-U</li>
                   <li>Stranded copper Class 2 NYA for H07V-R</li>
@@ -44,7 +45,7 @@ export const productCategories = [
                   </li>
                 </ul>
               </li>
-              <li><h3>Layer 2: Insulation</h3>
+              <li><h3>Insulation:</h3>
                 <ul>
                   <li>PVC</li>
                 </ul>

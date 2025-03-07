@@ -52,93 +52,95 @@ const ProductDetailPage = () => {
 
     return (
         <div className="product-detail-page">
-            <div className="product-container">
-                <div className="product-images">
-                    <img src={currentImage} alt={product.name} className="main-image" />
+    <div className="product-container">
+        {/* Move product-images above product-info */}
+        <div className="product-images">
+            <img src={currentImage} alt={product.name} className="main-image" />
 
-                    <div className="thumbnail-images">
-                        {product.images_dict && Object.entries(product.images_dict).map(([image, title], index) => (
-                            <div key={index} className="thumbnail-container">
-                                <img
-                                    src={image}
-                                    alt={title}
-                                    className="thumbnail"
-                                    onClick={() => handleThumbnailClick(image)}
-                                />
-                                <p className="thumbnail-title">{title}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="product-info">
-                    <div className="product-name-container">
-                        <h1 className="product-name">{product.name}</h1>
-                        {product.other_names_string && <p className="other-names">({product.other_names_string})</p>}
-                    </div>
-
-                    <div className="series_code">
-                        <p>Product Series Code:</p>
-                        <p><strong>{product.seriesCode}</strong></p>
-                    </div>
-
-                    <div className="product-description product-description-section">
-                        <h3>Application</h3>
-                        <p>{product.application}</p>
-                        <div className="catalog-btn-container">
-                            <a
-                                href={product.catalogPdf}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="catalog-btn"
-                            >
-                                View Technical Datasheet
-                            </a>
-                            <button
-                                onClick={() => {
-                                    const pdfWindow = window.open(product.catalogPdf, "_blank");
-                                    if (pdfWindow) {
-                                        pdfWindow.onload = () => pdfWindow.print();
-                                    }
-                                }}
-                                className="catalog-btn"
-                            >
-                                Print PDF
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className="details-section">
-                        <DetailSection
-                            title="Construction"
-                            content={product.construction}
-                            expanded={expandedSection === "construction"}
-                            toggleSection={() => toggleSection("construction")}
+            <div className="thumbnail-images">
+                {product.images_dict && Object.entries(product.images_dict).map(([image, title], index) => (
+                    <div key={index} className="thumbnail-container">
+                        <img
+                            src={image}
+                            alt={title}
+                            className="thumbnail"
+                            onClick={() => handleThumbnailClick(image)}
                         />
-                        <DetailSection
-                            title="Technical Characteristics"
-                            content={product.technicalCharacteristics}
-                            expanded={expandedSection === "technicalCharacteristics"}
-                            toggleSection={() => toggleSection("technicalCharacteristics")}
-                        />
-                        <DetailSection
-                            title="Standards"
-                            content={product.standards}
-                            expanded={expandedSection === "standards"}
-                            toggleSection={() => toggleSection("standards")}
-                        />
-                        {product.coreIdentification && (
-                            <DetailSection
-                                title="Core Identification"
-                                content={product.coreIdentification}
-                                expanded={expandedSection === "coreIdentification"}
-                                toggleSection={() => toggleSection("coreIdentification")}
-                            />
-                        )}
+                        <p className="thumbnail-title">{title}</p>
                     </div>
-                </div>
+                ))}
             </div>
         </div>
+
+        <div className="product-info">
+            <div className="product-name-container">
+                {product.other_names_string && <h1 className="product-name">{product.other_names_string}</h1>}
+                <h1 className="product-name">({product.name})</h1>
+            </div>
+
+            <div className="series_code">
+                <p>Product Series Code:</p>
+                <p><strong>{product.seriesCode}</strong></p>
+            </div>
+
+            <div className="product-description product-description-section">
+                <h3>Application</h3>
+                <p>{product.application}</p>
+                <div className="catalog-btn-container">
+                    <a
+                        href={product.catalogPdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="catalog-btn"
+                    >
+                        View Technical Datasheet
+                    </a>
+                    <button
+                        onClick={() => {
+                            const pdfWindow = window.open(product.catalogPdf, "_blank");
+                            if (pdfWindow) {
+                                pdfWindow.onload = () => pdfWindow.print();
+                            }
+                        }}
+                        className="catalog-btn"
+                    >
+                        Print PDF
+                    </button>
+                </div>
+            </div>
+
+            <div className="details-section">
+                {/* Detail sections */}
+                <DetailSection
+                    title="Construction"
+                    content={product.construction}
+                    expanded={expandedSection === "construction"}
+                    toggleSection={() => toggleSection("construction")}
+                />
+                <DetailSection
+                    title="Technical Characteristics"
+                    content={product.technicalCharacteristics}
+                    expanded={expandedSection === "technicalCharacteristics"}
+                    toggleSection={() => toggleSection("technicalCharacteristics")}
+                />
+                <DetailSection
+                    title="Standards"
+                    content={product.standards}
+                    expanded={expandedSection === "standards"}
+                    toggleSection={() => toggleSection("standards")}
+                />
+                {product.coreIdentification && (
+                    <DetailSection
+                        title="Core Identification"
+                        content={product.coreIdentification}
+                        expanded={expandedSection === "coreIdentification"}
+                        toggleSection={() => toggleSection("coreIdentification")}
+                    />
+                )}
+            </div>
+        </div>
+    </div>
+</div>
     );
 };
 

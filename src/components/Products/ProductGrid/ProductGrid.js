@@ -14,10 +14,10 @@ const ProductCard = ({ product }) => {
       <img src={product.main_img} alt={product.name} />
       <div className="divider"></div>
       <div className="product-info">
-        <h3>{product.name}</h3>
         {product.other_names_string && (
-          <p className="other-names-out">{product.other_names_string}</p>
-        )}
+            <h3>{product.other_names_string}</h3>
+          )}
+        <h3>({product.name})</h3>
       </div>
     </div>
   );
