@@ -23,7 +23,6 @@ const FeaturedProduct = () => {
           <h2>Discover Our <Link to="/products" className="client-text-button">Products</Link> Categories</h2>
           <div className="f-product-info">
             <h3>{currentCategory.name}</h3>
-            {/* <p className="f-description">{currentCategory.description}</p> */}
             <div className="product-nav">
               {productCategories.map((_, index) => (
                 <button

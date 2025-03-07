@@ -8,10 +8,13 @@ import nyaf_cat from "../assets/cables/catalogs/NYAF Cable.pdf";
 import bendingIcon from "../assets/cables/icons/fireproof.png";
 import flameIcon from "../assets/cables/icons/bending.png";
 
+import bw from "../assets/images/building-wires.png";
+
 
 export const productCategories = [
   {
     name: "Building Wires",
+    image: bw,
     subcategories: [
       {
         name: "Solid Conductors",
