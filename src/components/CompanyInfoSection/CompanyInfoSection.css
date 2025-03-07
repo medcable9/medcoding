@@ -17,17 +17,23 @@
 
 .info-text {
   flex: 1;
-  padding-right: 40px;
+  padding-right: 60px;
 }
 
 .info-image {
-  padding-top: 30px;
+  margin-top: 40px;
   flex: 1;
+  height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: 1s ease-in-out;
 }
+
 
 .info-image img {
   width: 100%;
-  height: auto;
+  height: 100px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
