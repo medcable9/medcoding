@@ -5,8 +5,8 @@ import nya_cat from "../assets/cables/catalogs/NYA Cable.pdf";
 import nyaf from "../assets/cables/nyaf.jpg";
 import nyaf_cat from "../assets/cables/catalogs/NYAF Cable.pdf";
 
-import bendingIcon from "../assets/cables/icons/fireproof.png";
-import flameIcon from "../assets/cables/icons/bending.png";
+import bendingIcon from "../assets/cables/icons/bending.png";
+import flameIcon from "../assets/cables/icons/fireproof.png";
 
 import bw from "../assets/images/building-wires.png";
 
