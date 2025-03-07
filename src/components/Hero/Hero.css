@@ -17,6 +17,7 @@
   filter: blur(5px); 
   -webkit-filter: blur(5px);
   transition: 1s ease-in-out;
+  clip-path: inset(0 0 1px 0);
 }
 
 .hero-main {
