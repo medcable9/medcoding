@@ -19,13 +19,17 @@ const ProductDetailPage = () => {
     const [expandedSection, setExpandedSection] = useState(null);
     const [currentImage, setCurrentImage] = useState(null);
 
+    // Changed to search in subcategories too
     const product = productCategories
-        .flatMap(cat => cat.products)
+        .flatMap(cat => cat.subcategories)
+        .flatMap(subCat => subCat.products)
         .find(p => p.name === productId);
 
     useEffect(() => {
         if (product && product.images_dict && Object.keys(product.images_dict).length > 0) {
             setCurrentImage(Object.keys(product.images_dict)[0]); // Set first image URL as default
+        } else if (product && product.main_img) {
+            setCurrentImage(product.main_img);
         }
     }, [product]);
 
@@ -44,59 +48,59 @@ const ProductDetailPage = () => {
                 <Link to="/products" className="back-link">←</Link>
             </div>
         );
-    } 
+    }
 
     return (
         <div className="product-detail-page">
             <div className="product-container">
                 <div className="product-images">
                     <img src={currentImage} alt={product.name} className="main-image" />
-                    
+
                     <div className="thumbnail-images">
-                        {Object.entries(product.images_dict).map(([image, title], index) => (
+                        {product.images_dict && Object.entries(product.images_dict).map(([image, title], index) => (
                             <div key={index} className="thumbnail-container">
-                                <img 
-                                    src={image} 
-                                    alt={title} 
+                                <img
+                                    src={image}
+                                    alt={title}
                                     className="thumbnail"
                                     onClick={() => handleThumbnailClick(image)}
                                 />
-                                <p className="thumbnail-title">{title}</p> 
+                                <p className="thumbnail-title">{title}</p>
                             </div>
                         ))}
                     </div>
                 </div>
-                
+
                 <div className="product-info">
                     <div className="product-name-container">
                         <h1 className="product-name">{product.name}</h1>
-                        {product.other_names && <p className="other-names">({product.other_names})</p>}
+                        {product.other_names_string && <p className="other-names">({product.other_names_string})</p>}
                     </div>
-                    
+
                     <div className="series_code">
                         <p>Product Series Code:</p>
                         <p><strong>{product.seriesCode}</strong></p>
                     </div>
-                    
+
                     <div className="product-description product-description-section">
                         <h3>Application</h3>
                         <p>{product.application}</p>
                         <div className="catalog-btn-container">
-                            <a 
-                                href={product.catalogPdf} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
+                            <a
+                                href={product.catalogPdf}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="catalog-btn"
                             >
                                 View Technical Datasheet
                             </a>
-                            <button 
+                            <button
                                 onClick={() => {
                                     const pdfWindow = window.open(product.catalogPdf, "_blank");
                                     if (pdfWindow) {
                                         pdfWindow.onload = () => pdfWindow.print();
                                     }
-                                }} 
+                                }}
                                 className="catalog-btn"
                             >
                                 Print PDF

@@ -54,6 +54,7 @@ const Header = () => {
             navigate('/products');
         }
     };
+
     const clearMobileSearch = () => {
         setMobileSearchQuery('');
         setSearchQuery('');
@@ -121,14 +122,25 @@ const Header = () => {
     const updateSearchSuggestions = (value) => {
         if (value.length > 0) {
             const suggestions = productCategories
+                .flatMap(cat => cat.subcategories)
                 .flatMap(cat => cat.products)
-                .filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
+                // .filter(product => product.name.toLowerCase().includes(value.toLowerCase()))
+                .filter(product => {
+                    const queryLower = value.toLowerCase();
+                    const productNameMatch = product.name.toLowerCase().includes(queryLower);
+                    const otherNamesMatch = product.other_names 
+                        ? product.other_names.some(name => name.toLowerCase().includes(queryLower))
+                        : false;
+                    
+                    return productNameMatch || otherNamesMatch;
+                })
                 .slice(0, 5);
             setSearchSuggestions(suggestions);
         } else {
             setSearchSuggestions([]);
         }
     };
+    
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -173,11 +185,25 @@ const Header = () => {
                         )}
                         <FaSearch className="search-icon" />
                         {searchSuggestions.length > 0 && (
+                            // <ul className="search-suggestions">
+                            //     {searchSuggestions.map((product, index) => (
+                            //         <li key={index} onClick={() => handleSuggestionClick(product.name)}>
+                            //             {product.name}
+                            //         </li>
+                            //     ))}
+                            // </ul>
                             <ul className="search-suggestions">
                                 {searchSuggestions.map((product, index) => (
-                                    <li key={index} onClick={() => handleSuggestionClick(product.name)}>
-                                        {product.name}
-                                    </li>
+                                    <React.Fragment key={index}>
+                                        <li onClick={() => handleSuggestionClick(product.name)}>
+                                            {product.name}
+                                        </li>
+                                        {product.other_names && product.other_names.map((altName, i) => (
+                                            <li key={`${index}-${i}`} className="other-name" onClick={() => handleSuggestionClick(altName)}>
+                                                {altName}
+                                            </li>
+                                        ))}
+                                    </React.Fragment>
                                 ))}
                             </ul>
                         )}
@@ -209,11 +235,25 @@ const Header = () => {
                 )}
                 <FaSearch className="mobile-search-icon" />
                 {searchSuggestions.length > 0 && (
+                    // <ul className="mobile-search-suggestions">
+                    //     {searchSuggestions.map((product, index) => (
+                    //         <li key={index} onClick={() => handleSuggestionClick(product.name)}>
+                    //             {product.name}
+                    //         </li>
+                    //     ))}
+                    // </ul>
                     <ul className="mobile-search-suggestions">
                         {searchSuggestions.map((product, index) => (
-                            <li key={index} onClick={() => handleSuggestionClick(product.name)}>
-                                {product.name}
-                            </li>
+                            <React.Fragment key={index}>
+                                <li onClick={() => handleSuggestionClick(product.name)}>
+                                    {product.name}
+                                </li>
+                                {product.other_names && product.other_names.map((altName, i) => (
+                                    <li key={`${index}-${i}`} className="other-name" onClick={() => handleSuggestionClick(altName)}>
+                                        {altName}
+                                    </li>
+                                ))}
+                            </React.Fragment>
                         ))}
                     </ul>
                 )}
