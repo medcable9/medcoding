@@ -128,10 +128,10 @@ const Header = () => {
                 .filter(product => {
                     const queryLower = value.toLowerCase();
                     const productNameMatch = product.name.toLowerCase().includes(queryLower);
-                    const otherNamesMatch = product.other_names 
-                        ? product.other_names.some(name => name.toLowerCase().includes(queryLower))
-                        : false;
-                    
+                    const otherNamesMatch = product.other_names
+                        ? product.other_names.find(name => name.toLowerCase().includes(queryLower))
+                        : null;
+
                     return productNameMatch || otherNamesMatch;
                 })
                 .slice(0, 5);
@@ -140,7 +140,6 @@ const Header = () => {
             setSearchSuggestions([]);
         }
     };
-    
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -185,26 +184,30 @@ const Header = () => {
                         )}
                         <FaSearch className="search-icon" />
                         {searchSuggestions.length > 0 && (
-                            // <ul className="search-suggestions">
-                            //     {searchSuggestions.map((product, index) => (
-                            //         <li key={index} onClick={() => handleSuggestionClick(product.name)}>
-                            //             {product.name}
-                            //         </li>
-                            //     ))}
-                            // </ul>
                             <ul className="search-suggestions">
-                                {searchSuggestions.map((product, index) => (
-                                    <React.Fragment key={index}>
-                                        <li onClick={() => handleSuggestionClick(product.name)}>
-                                            {product.name}
-                                        </li>
-                                        {product.other_names && product.other_names.map((altName, i) => (
-                                            <li key={`${index}-${i}`} className="other-name" onClick={() => handleSuggestionClick(altName)}>
-                                                {altName}
+                                {searchSuggestions.map((product, index) => {
+                                    const otherNameMatch = product.other_names
+                                        ? product.other_names.find(name =>
+                                            name.toLowerCase().includes(searchQuery.toLowerCase())
+                                        )
+                                        : null;
+
+                                    return (
+                                        <React.Fragment key={index}>
+                                            <li onClick={() => handleSuggestionClick(product.name)}>
+                                                {product.name}
                                             </li>
-                                        ))}
-                                    </React.Fragment>
-                                ))}
+                                            {otherNameMatch && (
+                                                <li
+                                                    className="other-name"
+                                                    onClick={() => handleSuggestionClick(otherNameMatch)}
+                                                >
+                                                    {otherNameMatch}
+                                                </li>
+                                            )}
+                                        </React.Fragment>
+                                    );
+                                })}
                             </ul>
                         )}
                     </div>
@@ -219,6 +222,7 @@ const Header = () => {
                 </button>
             </div>
 
+            {/* Mobile Menu */}
             {/* Mobile search bar */}
             <div className="mobile-search-form" ref={mobileSearchRef}>
                 <input
@@ -235,26 +239,30 @@ const Header = () => {
                 )}
                 <FaSearch className="mobile-search-icon" />
                 {searchSuggestions.length > 0 && (
-                    // <ul className="mobile-search-suggestions">
-                    //     {searchSuggestions.map((product, index) => (
-                    //         <li key={index} onClick={() => handleSuggestionClick(product.name)}>
-                    //             {product.name}
-                    //         </li>
-                    //     ))}
-                    // </ul>
                     <ul className="mobile-search-suggestions">
-                        {searchSuggestions.map((product, index) => (
-                            <React.Fragment key={index}>
-                                <li onClick={() => handleSuggestionClick(product.name)}>
-                                    {product.name}
-                                </li>
-                                {product.other_names && product.other_names.map((altName, i) => (
-                                    <li key={`${index}-${i}`} className="other-name" onClick={() => handleSuggestionClick(altName)}>
-                                        {altName}
+                        {searchSuggestions.map((product, index) => {
+                            const otherNameMatch = product.other_names
+                                ? product.other_names.find(name =>
+                                    name.toLowerCase().includes(mobileSearchQuery.toLowerCase())
+                                )
+                                : null;
+
+                            return (
+                                <React.Fragment key={index}>
+                                    <li onClick={() => handleSuggestionClick(product.name)}>
+                                        {product.name}
                                     </li>
-                                ))}
-                            </React.Fragment>
-                        ))}
+                                    {otherNameMatch && (
+                                        <li
+                                            className="other-name"
+                                            onClick={() => handleSuggestionClick(otherNameMatch)}
+                                        >
+                                            {otherNameMatch}
+                                        </li>
+                                    )}
+                                </React.Fragment>
+                            );
+                        })}
                     </ul>
                 )}
             </div>

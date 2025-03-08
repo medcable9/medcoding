@@ -223,7 +223,8 @@ export const productCategories = [
             catalogPdf: nyaf_cat,
           }
       ]
-    }
+    },
+    
     ]
   }
 ];

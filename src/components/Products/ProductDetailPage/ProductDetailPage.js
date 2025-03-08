@@ -53,7 +53,6 @@ const ProductDetailPage = () => {
     return (
         <div className="product-detail-page">
     <div className="product-container">
-        {/* Move product-images above product-info */}
         <div className="product-images">
             <img src={currentImage} alt={product.name} className="main-image" />
 
@@ -108,37 +107,37 @@ const ProductDetailPage = () => {
                     </button>
                 </div>
             </div>
-
-            <div className="details-section">
-                {/* Detail sections */}
-                <DetailSection
-                    title="Construction"
-                    content={product.construction}
-                    expanded={expandedSection === "construction"}
-                    toggleSection={() => toggleSection("construction")}
-                />
-                <DetailSection
-                    title="Technical Characteristics"
-                    content={product.technicalCharacteristics}
-                    expanded={expandedSection === "technicalCharacteristics"}
-                    toggleSection={() => toggleSection("technicalCharacteristics")}
-                />
-                <DetailSection
-                    title="Standards"
-                    content={product.standards}
-                    expanded={expandedSection === "standards"}
-                    toggleSection={() => toggleSection("standards")}
-                />
-                {product.coreIdentification && (
-                    <DetailSection
-                        title="Core Identification"
-                        content={product.coreIdentification}
-                        expanded={expandedSection === "coreIdentification"}
-                        toggleSection={() => toggleSection("coreIdentification")}
-                    />
-                )}
-            </div>
         </div>
+    </div>
+
+    {/* Move details-section here */}
+    <div className="details-section">
+        <DetailSection
+            title="Construction"
+            content={product.construction}
+            expanded={expandedSection === "construction"}
+            toggleSection={() => toggleSection("construction")}
+        />
+        <DetailSection
+            title="Technical Characteristics"
+            content={product.technicalCharacteristics}
+            expanded={expandedSection === "technicalCharacteristics"}
+            toggleSection={() => toggleSection("technicalCharacteristics")}
+        />
+        <DetailSection
+            title="Standards"
+            content={product.standards}
+            expanded={expandedSection === "standards"}
+            toggleSection={() => toggleSection("standards")}
+        />
+        {product.coreIdentification && (
+            <DetailSection
+                title="Core Identification"
+                content={product.coreIdentification}
+                expanded={expandedSection === "coreIdentification"}
+                toggleSection={() => toggleSection("coreIdentification")}
+            />
+        )}
     </div>
 </div>
     );
