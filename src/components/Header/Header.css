@@ -206,7 +206,7 @@
     color: #0F316D;
     font-size: 18px;
 }
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .header-wrapper {
     padding: 0 15px;
   }
