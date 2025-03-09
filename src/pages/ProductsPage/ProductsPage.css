@@ -25,7 +25,7 @@
   flex-grow: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .products-page {
     padding: 130px 20px 20px 20px;
   }
