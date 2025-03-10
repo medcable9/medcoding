@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Hero.css";
 
 const backgrounds = [
-  require("../../assets/images/hero3.jpg"),
+  require("../../assets/images/IMG_7494.JPG"),
   require("../../assets/images/hero2.jpeg"),
+  require("../../assets/images/hero4.jpg"),
   require("../../assets/images/IMG_7503.JPG"),
   require("../../assets/images/IMG_7504.JPG"),
 ];
@@ -26,7 +27,7 @@ const HeroSection = () => {
         style={{ backgroundImage: `url(${backgrounds[bgIndex]})` }}
       ></section>
       <div className="hero-main">
-        <div className="hero-content">
+        {/* <div className="hero-content">
           <h1 className="hero-title">
             <span>Mediterranean Cables</span>
           </h1>
@@ -35,7 +36,7 @@ const HeroSection = () => {
             A leading cable manufacturer that delivers reliable and high-quality
             customized solutions for various industries.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );
