@@ -131,10 +131,8 @@ const Header = () => {
                     const otherNamesMatch = product.other_names
                         ? product.other_names.find(name => name.toLowerCase().includes(queryLower))
                         : null;
-
                     return productNameMatch || otherNamesMatch;
-                })
-                .slice(0, 5);
+                });
             setSearchSuggestions(suggestions);
         } else {
             setSearchSuggestions([]);
