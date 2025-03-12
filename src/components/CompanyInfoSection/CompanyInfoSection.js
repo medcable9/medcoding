@@ -4,6 +4,7 @@ import { company_info } from "../../data/company_info";
 
 const images = [
   require("../../assets/images/IMG_7494.webp"),
+  require("../../assets/images/5W4A0180.jpeg"),
   // require("../../assets/images/IMG_7503.webp"),
   // require("../../assets/images/IMG_7506.webp"),
   // require("../../assets/images/hero2.webp"),
