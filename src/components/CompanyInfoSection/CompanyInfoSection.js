@@ -3,10 +3,10 @@ import "./CompanyInfoSection.css";
 import { company_info } from "../../data/company_info";
 
 const images = [
-  require("../../assets/images/IMG_7494.Webp"),
-  require("../../assets/images/IMG_7503.JPG"),
-  require("../../assets/images/IMG_7506.JPG"),
-  require("../../assets/images/hero2.jpeg"),
+  require("../../assets/images/IMG_7494.webp"),
+  require("../../assets/images/IMG_7503.webp"),
+  require("../../assets/images/IMG_7506.webp"),
+  require("../../assets/images/hero2.webp"),
 ];
 
 const CompanyInfo = () => {
