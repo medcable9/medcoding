@@ -3,11 +3,11 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./Hero.css";
 
 const backgrounds = [
-  require("../../assets/images/IMG_7494.JPG"),
-  require("../../assets/images/hero2.jpeg"),
-  require("../../assets/images/hero4.jpg"),
-  require("../../assets/images/IMG_7503.JPG"),
-  require("../../assets/images/IMG_7504.JPG"),
+  require("../../assets/images/IMG_7494.webp"),
+  require("../../assets/images/hero2.webp"),
+  require("../../assets/images/hero4.webp"),
+  require("../../assets/images/IMG_7503.webp"),
+  require("../../assets/images/IMG_7504.webp"),
 ];
 
 const HeroSection = () => {
