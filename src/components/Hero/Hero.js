@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./Hero.css";
 
 const backgrounds = [
@@ -14,11 +15,19 @@ const HeroSection = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+      nextImage();
     }, 5000);
 
     return () => clearInterval(interval);
   }, []);
+
+  const nextImage = () => {
+    setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+  };
+
+  const prevImage = () => {
+    setBgIndex((prevIndex) => (prevIndex - 1 + backgrounds.length) % backgrounds.length);
+  };
 
   return (
     <section className="hero-section">
@@ -38,6 +47,12 @@ const HeroSection = () => {
           </p>
         </div> */}
       </div>
+      <button className="hero-arrow left" onClick={prevImage}>
+        <FaChevronLeft />
+      </button>
+      <button className="hero-arrow right" onClick={nextImage}>
+        <FaChevronRight />
+      </button>
     </section>
   );
 };
