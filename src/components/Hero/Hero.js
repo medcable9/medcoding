@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./Hero.css";
 
@@ -7,26 +7,34 @@ const backgrounds = [
   require("../../assets/images/hero2.webp"),
   require("../../assets/images/hero4.webp"),
   require("../../assets/images/IMG_7503.webp"),
-  require("../../assets/images/IMG_7504.webp"),
+  require("../../assets/images/IMG_7506.webp"),
 ];
 
 const HeroSection = () => {
   const [bgIndex, setBgIndex] = useState(0);
+  const intervalRef = useRef(null); // Store interval reference
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextImage();
-    }, 5000);
+    startSlideshow(); // Start auto-slide on mount
 
-    return () => clearInterval(interval);
+    return () => clearInterval(intervalRef.current); // Cleanup on unmount
   }, []);
+
+  const startSlideshow = () => {
+    clearInterval(intervalRef.current); // Clear existing interval
+    intervalRef.current = setInterval(() => {
+      setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+    }, 5000);
+  };
 
   const nextImage = () => {
     setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+    startSlideshow(); // Restart the slideshow
   };
 
   const prevImage = () => {
     setBgIndex((prevIndex) => (prevIndex - 1 + backgrounds.length) % backgrounds.length);
+    startSlideshow(); // Restart the slideshow
   };
 
   return (
@@ -36,16 +44,7 @@ const HeroSection = () => {
         style={{ backgroundImage: `url(${backgrounds[bgIndex]})` }}
       ></section>
       <div className="hero-main">
-        {/* <div className="hero-content">
-          <h1 className="hero-title">
-            <span>Mediterranean Cables</span>
-          </h1>
-          <h2>Quality Cables Since 2009</h2>
-          <p>
-            A leading cable manufacturer that delivers reliable and high-quality
-            customized solutions for various industries.
-          </p>
-        </div> */}
+        {/* Hero Content Here */}
       </div>
       <button className="hero-arrow left" onClick={prevImage}>
         <FaChevronLeft />
