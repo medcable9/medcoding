@@ -35,7 +35,7 @@ const ToggleViewButton = ({ shownCount, totalCount, onClick, isShowingAll }) => 
 );
 
 const ProductGrid = ({ products }) => {
-  const initialVisibleCount = 8;
+  const initialVisibleCount = 10;
   const [visibleProducts, setVisibleProducts] = useState(initialVisibleCount);
 
   const productsToShow = 8;

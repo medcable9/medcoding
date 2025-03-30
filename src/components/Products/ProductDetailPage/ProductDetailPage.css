@@ -38,12 +38,12 @@
 }
 
 .thumbnail {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 40px;
     cursor: pointer;
     border: 2px solid transparent;
     transition: border-color 0.3s ease, transform 0.3s ease;
-    object-fit: cover;
+    object-fit: contain;
     margin-top: 30px;
 }
 
@@ -237,7 +237,7 @@
 }
 
 .detail-section.expanded .detail-content {
-    max-height: 500px;
+    max-height: none;
 }
 
 .detail-section.expanded .detail-header::after {
@@ -322,11 +322,11 @@
     }
     
     .details-section {
-        padding: 15px;
+        padding: 10px;
     }
 
     .detail-section {
-        padding: 15px;
+        padding: 10px;
     }
 
     .detail-header {
@@ -346,5 +346,12 @@
 
     .detail-section.expanded .detail-header::after {
         content: '-';
+    }
+    
+    .color-icon {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        /* margin-bottom: 5px; */
     }
 }
