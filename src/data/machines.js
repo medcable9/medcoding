@@ -1,17 +1,10 @@
-import hero2 from '../assets/images/hero2.webp';
-import hero4 from '../assets/images/hero4.webp';
-import IMG_7503 from '../assets/images/IMG_7503.webp';
+import m11 from '../assets/machines/machine1/m11.webp';
+import m12 from '../assets/machines/machine1/m12.webp';
+import m13 from '../assets/machines/machine1/m13.webp';
+import m14 from '../assets/machines/machine1/m14.webp';
 export const machines = [
     {
-        name: 'Machine 1',
-        image: [hero2,hero4,IMG_7503]
-    },
-    {
-        name: 'Machine 2',
-        image: [hero4,IMG_7503,hero2]
-    },
-    {
-        name: 'Machine 3',
-        image: [IMG_7503,hero2,hero4]
+        name: 'CV-line Machine for Medium Voltage Cables',
+        image: [m11, m12, m13, m14],
     }
 ];
