@@ -6,7 +6,7 @@
 .info-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }
 
 .info-content {
@@ -55,7 +55,7 @@
 .info-grid {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
