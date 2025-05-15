@@ -1,8 +1,9 @@
 .hero-section {
-  /* margin-top: 0; */
+  margin-top: 0;
   /* padding: 100px 20px 20px 20px; */
   /* padding: 0; */
   min-height: 110vh;
+  /* min-width: 1700px; */
   display: flex;
   align-items: center;
   justify-content: center;
