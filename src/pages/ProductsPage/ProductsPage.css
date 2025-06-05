@@ -25,6 +25,22 @@
   flex-grow: 1;
 }
 
+.under-construction-message {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  padding: 16px 24px;
+  margin: 20px 0 0 0;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
 @media (max-width: 1200px) {
   .products-page {
     padding: 130px 20px 20px 20px;
