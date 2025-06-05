@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { productCategories } from "../../data/products";
-import ProductFilter from "../../components/Products/ProductFilter/ProductFilter";
-import ProductGrid from "../../components/Products/ProductGrid/ProductGrid";
+// import ProductFilter from "../../components/Products/ProductFilter/ProductFilter";
+// import ProductGrid from "../../components/Products/ProductGrid/ProductGrid";
 import "./ProductsPage.css";
 
 const ProductsPage = () => {
