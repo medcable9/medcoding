@@ -18,7 +18,7 @@
   height: 100%;
 } */
 
-.hero-background-wrapper {
+/* .hero-background-wrapper {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -47,9 +47,9 @@
 .hero-background.fade-out {
   opacity: 0;
   z-index: 0;
-}
+} */
 
-/* .hero-background {
+.hero-background {
   position: absolute;
   inset: 0;
   background-size: cover;
@@ -66,7 +66,7 @@
 
 .fade-in {
   opacity: 1;
-} */
+}
 
 
 
