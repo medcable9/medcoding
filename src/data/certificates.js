@@ -82,7 +82,7 @@ export const certificates = [
     {
       id: 7,
       title: 'ISO 9001:2015',
-      issuer: 'SGS',
+      issuer: 'MQA',
       preview: iso9001,
       file: iso9001pdf,
       color: '#2ecc71'
