@@ -78,10 +78,9 @@ const ProductsPage = () => {
   return (
     <div className="products-page">
       <h2>Products</h2>
-      <div className="under-construction-message">
-        🚧 This page is still under construction. Check back soon! 🚧
-      </div>
+      
       <div className="products-content">
+        
         <div className="filter-sidebar">
           <ProductFilter
             categories={productCategories}
@@ -97,7 +96,11 @@ const ProductsPage = () => {
   <div className="product-grid-area">
     <ProductGrid categories={productCategories} products={filteredProducts} />
   </div>
+  
 )}
+<div className="under-construction-message">
+        🚧 This page is still under construction. Check back soon! 🚧
+      </div>
 
       </div>
     </div>
