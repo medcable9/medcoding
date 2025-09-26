@@ -11,11 +11,11 @@ const ProductsPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-//   useEffect(() => {
-//     const searchParams = new URLSearchParams(location.search);
-//     const searchTerm = searchParams.get("search") || "";
-//     setFilters(prevFilters => ({ ...prevFilters, searchTerm }));
-// }, [location]);
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const searchTerm = searchParams.get("search") || "";
+    setFilters(prevFilters => ({ ...prevFilters, searchTerm }));
+}, [location]);
 
   useEffect(() => {
     // Extract products based on category and subcategory filters
@@ -93,6 +93,12 @@ const ProductsPage = () => {
         {/* <div className="product-grid-area">
           <ProductGrid categories={productCategories} products={filteredProducts} />
         </div> */}
+        {false && (
+  <div className="product-grid-area">
+    <ProductGrid categories={productCategories} products={filteredProducts} />
+  </div>
+)}
+
       </div>
     </div>
   );
