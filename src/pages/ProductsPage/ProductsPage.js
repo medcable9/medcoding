@@ -89,18 +89,18 @@ const ProductsPage = () => {
             currentFilters={filters}
           />
         </div>
-        {/* <div className="product-grid-area">
+        <div className="product-grid-area">
           <ProductGrid categories={productCategories} products={filteredProducts} />
-        </div> */}
+        </div>
         {false && (
   <div className="product-grid-area">
     <ProductGrid categories={productCategories} products={filteredProducts} />
   </div>
   
 )}
-<div className="under-construction-message">
+{/* <div className="under-construction-message">
         🚧 This page is still under construction. Check back soon! 🚧
-      </div>
+      </div> */}
 
       </div>
     </div>

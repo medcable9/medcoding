@@ -8,6 +8,7 @@ import About from './pages/AboutPage/About';
 import Products from './pages/ProductsPage/ProductsPage';
 import Projects from './pages/ProjectsPage/ProjectsPage';
 import Certificates from './pages/CertificatesPage/CertificatesPage';
+import Catalogs from './pages/CatalogsPage/CatalogsPage';
 import EmailFloatingIcon from './components/EmailFloatingIcon/EmailFloatingIcon';
 import ProductDetailPage from "./components/Products/ProductDetailPage/ProductDetailPage";
 import "slick-carousel/slick/slick.css";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/products/:productId" element={<ProductDetailPage />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/certificates" element={<Certificates />} />
+          <Route path="/catalogs" element={<Catalogs />} />
         </Routes>
         </div>
         <EmailFloatingIcon />
