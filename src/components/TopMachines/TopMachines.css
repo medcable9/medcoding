@@ -1,0 +1,176 @@
+.top-machine-section {
+  background-color: white;
+  min-height: 50vh;
+  display: flex;
+  align-items: stretch;
+}
+
+.top-machine-container {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.top-machine-left,
+.top-machine-right {
+  width: 50%;
+}
+
+.top-machine-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-machine-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.machine-image-container {
+  position: relative;
+  display: flex;
+  height: 400px; /* Fixed height for the container */
+  width: 100%; /* Ensure it takes the full width */
+}
+
+.machine-base-image {
+  width: 100%; /* Make sure the image covers the full width */
+  height: 100%; /* Make sure the image covers the full height */
+  object-fit: cover; /* Ensure the image covers the area, cropping if necessary */
+}
+
+.thumbnail-container-vertical {
+  display: flex;
+  flex-direction: column; /* Arrange thumbnails vertically */
+  gap: 1rem;
+}
+
+.thumbnail1 {
+  width: 60px; /* Fixed thumbnail size */
+  height: 60px; /* Fixed thumbnail size */
+  object-fit: cover; /* Ensure thumbnails cover the area */
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.thumbnail1:hover {
+  transform: scale(1.05);
+}
+
+.active-thumbnail {
+  border-color: #0f316d; /* Highlight active thumbnail */
+}
+
+.top-machine-section h2 {
+  font-size: 2.5rem;
+  color: #1d3557;
+  margin-top: 100px;
+  text-align: center;
+}
+
+.f-machine-info {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 7rem;
+}
+
+.f-machine-info h3 {
+  font-size: 1.5rem;
+  color: #1d3557;
+  margin-bottom: 2rem;
+}
+
+.machine-nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-dot.active {
+  background-color: #0f316d;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .top-machine-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .top-machine-left, .top-machine-right {
+    width: 100%;
+  }
+  .machine-image-container {
+    flex-direction: column;
+    align-items: center;
+    height: 300px; /* Adjusted height for smaller screens */
+  }
+  .machine-base-image {
+    width: 80%;
+    height: 300px;
+  }
+  .thumbnail-container-vertical {
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-machine-section {
+    padding: 1rem 0;
+  }
+  .top-machine-left {
+    height: 300px;
+  }
+  .top-machine-right {
+    height: 300px;
+  }
+  .top-machine-section h2 {
+    font-size: 2.2rem;
+    margin: 30px 30px 0 30px;
+  }
+  .f-machine-info h3 {
+    font-size: 1.4rem;
+  }
+  .f-machine-info {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-machine-left {
+    height: 300px;
+  }
+  .top-machine-right {
+    height: 250px;
+  }
+  .top-machine-section h2 {
+    font-size: 2rem;
+    margin: 30px 30px 0 30px;
+  }
+  .f-machine-info {
+    margin-bottom: 2rem;
+  }
+  .f-machine-info h3 {
+    font-size: 1.4rem;
+  }
+}

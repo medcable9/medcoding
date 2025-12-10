@@ -1,0 +1,207 @@
+.activities-section {
+  padding: 30px 0;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.activities-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  /* padding: 0 50px; */
+}
+
+.activities-title {
+  font-size: 2.5rem;
+  color: #1d3557;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.date-ribbon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(to right, #b28c33, #E9C36A);
+  color: white;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(15, 49, 109, 0.3);
+}
+
+.date-icon {
+  margin-right: 6px;
+  font-size: 1rem;
+}
+
+.activities-slider {
+  padding-bottom: 50px;
+}
+
+.activity-card {
+  background-color: transparent;
+  perspective: 1000px;
+  height: 600px;
+  width: 100%;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.activity-card.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(15, 49, 109, 0.1);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.activity-image-container {
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.activity-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.single-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.activity-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.activity-title {
+  font-size: 1.5rem;
+  color: #0F316D;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.activity-description {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  overflow-y: auto;
+  text-align: justify;
+}
+
+.read-more-btnn {
+  background: linear-gradient(135deg, #0F316D, #1a5f7a);
+  color: white;
+  padding: 12px 18px;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  box-shadow: 0 4px 8px rgba(15, 49, 109, 0.3);
+  width: 80%;
+  max-width: 200px;
+  align-self: center;
+  border: none;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.read-more-btnn:hover {
+  background: linear-gradient(135deg, #1a5f7a, #0F316D);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(15, 49, 109, 0.4);
+}
+
+.card-back .read-more-btnn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 200px;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  background-color: #0F316D;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.activity-date-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(15, 49, 109, 0.8);
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 3px;
+}
+
+.activity-card.is-flipped .activity-image-container {
+  display: none;
+}
+
+
+@media (max-width: 640px) {
+  .activity-card {
+    max-width: 320px;
+    margin: 0 auto;
+    height: 697px;
+  }
+
+  .activities-title {
+    font-size: 2.2rem;
+  }
+  .activity-title {
+    font-size: 1.4rem;
+  }
+  
+  .activity-description {
+    font-size: 1rem;
+  }
+}
+
+.swiper-slide {
+  height: auto !important;
+}

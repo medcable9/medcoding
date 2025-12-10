@@ -1,0 +1,90 @@
+.agents-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  /* background-color: #F8F9FA; */
+  background-color: #F0EFEE;
+  margin-bottom: 40px;
+}
+
+.agents-content {
+  flex: 1;
+  /* margin-left: 50px; */
+}
+
+.agents-content h2 {
+  font-size: 2.5rem;
+  color: #1d3557;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: #555;
+}
+
+.agents-container {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  margin-top: 30px;
+  justify-content: flex-start;
+  margin-left: 160px;
+}
+
+.agents-card {
+  background: #f8f9fa;
+  width: 200px;
+  text-align: center;
+  height: 200px;
+}
+
+.agent-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .agents-section {
+    flex-direction: column;
+    text-align: center;
+    align-items: center; /* Center content vertically */
+  }
+
+  .agents-content {
+    text-align: center;
+    padding: 1rem;
+    margin-left: 0; /* Remove left margin */
+  }
+
+  .agents-container {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 0; /* Remove left margin */
+  }
+
+  .agents-content h2 {
+    margin-top: 20px;
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .agents-container {
+    flex-direction: column; /* Stack cards vertically on smaller screens */
+    align-items: center; /* Center cards horizontally */
+  }
+
+  .agents-card {
+    width: 80%; /* Make cards take up most of the width */
+    max-width: 300px; /* But not too wide */
+  }
+  .agents-content h2 {
+    margin-top: 20px;
+    font-size: 2.2rem;
+  }
+}
