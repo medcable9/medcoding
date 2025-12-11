@@ -1,7 +1,10 @@
-.catalogs-container {
-  padding: 100px 20px 40px 20px;
+.catalogs-page {
   background-color: #F0EFEE;
   min-height: calc(100vh - 200px);
+}
+
+.catalogs-container {
+  padding: 100px 20px 40px 20px;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -138,6 +141,10 @@
 @media (max-width: 768px) {
   .catalogs-container {
     padding: 130px 15px 30px 15px;
+  }
+  
+  .catalogs-page {
+    min-height: calc(100vh - 200px);
   }
 
   .catalogs-container h2 {

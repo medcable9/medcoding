@@ -18,43 +18,45 @@ const CatalogsPage = () => {
   };
 
   return (
-    <div className="catalogs-container">
-      <div className="catalogs-header">
-        <h2>Product Catalogs</h2>
-        <p className="catalogs-description">Browse and download our comprehensive product catalogs</p>
-      </div>
-      <div className="catalogs-list">
-        {catalogs.map((catalog) => (
-          <div key={catalog.id} className="catalog-item">
-            <div className="catalog-item-content">
-              <div className="catalog-icon-container">
-                <FiFileText className="catalog-icon" />
-              </div>
-              <div className="catalog-details">
-                <h3 className="catalog-title">{catalog.title}</h3>
-                <span className="catalog-type">PDF Document</span>
-              </div>
-              <div className="catalog-actions">
-                <button 
-                  onClick={() => openCatalog(catalog.file)}
-                  className="action-button view-button"
-                  title="View Catalog"
-                >
-                  <FiEye />
-                  <span>View</span>
-                </button>
-                <button 
-                  onClick={() => downloadCatalog(catalog.file, catalog.title)}
-                  className="action-button download-button"
-                  title="Download Catalog"
-                >
-                  <FiDownload />
-                  <span>Download</span>
-                </button>
+    <div className="catalogs-page">
+      <div className="catalogs-container">
+        <div className="catalogs-header">
+          <h2>Product Catalogs</h2>
+          <p className="catalogs-description">Browse and download our comprehensive product catalogs</p>
+        </div>
+        <div className="catalogs-list">
+          {catalogs.map((catalog) => (
+            <div key={catalog.id} className="catalog-item">
+              <div className="catalog-item-content">
+                <div className="catalog-icon-container">
+                  <FiFileText className="catalog-icon" />
+                </div>
+                <div className="catalog-details">
+                  <h3 className="catalog-title">{catalog.title}</h3>
+                  <span className="catalog-type">PDF Document</span>
+                </div>
+                <div className="catalog-actions">
+                  <button 
+                    onClick={() => openCatalog(catalog.file)}
+                    className="action-button view-button"
+                    title="View Catalog"
+                  >
+                    <FiEye />
+                    <span>View</span>
+                  </button>
+                  <button 
+                    onClick={() => downloadCatalog(catalog.file, catalog.title)}
+                    className="action-button download-button"
+                    title="Download Catalog"
+                  >
+                    <FiDownload />
+                    <span>Download</span>
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
